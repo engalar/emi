@@ -1,0 +1,7 @@
+
+query ee($id:Int!) {
+  pets{
+    id
+    name
+  }
+}
