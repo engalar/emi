@@ -1,5 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 import {ApolloClient, createNetworkInterface} from 'apollo-client';
 import {ApolloModule} from 'apollo-angular';
@@ -15,7 +15,8 @@ export function provideClient(): ApolloClient {
   return client;
 }
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {DemoModule} from './demo/demo.module';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     ApolloModule.forRoot(provideClient),
+    DemoModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
