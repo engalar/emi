@@ -1,7 +1,16 @@
 
-query ee($id:Int!) {
+query ee {
   pets{
     id
     name
+  }
+  pet(id:1){
+    name
+    owner{
+      firstName
+      lastName
+      telephone
+      city
+    }
   }
 }

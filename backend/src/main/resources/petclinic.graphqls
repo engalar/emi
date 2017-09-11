@@ -29,6 +29,7 @@ type Query {
 # The type (species) of a Pet
 type PetType {
   id: Int!
+  # some dsc for name
   name: String!
 }
 

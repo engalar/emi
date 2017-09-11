@@ -1,227 +1,284 @@
-scalar Date
-
-# The Query type provides all entry points to the PetClinic GraphQL schema
-
-type Query {
-# Return all known PetTypes
-pettypes: [PetType!]!
-
-# Return all known veterinaries
-vets: [Vet!]!
-
-# Return all known Pet Owners
-owners: [Owner!]!
-
-# Return the Owner with the specified id
-owner(id: Int!): Owner!
-
-# Return the Pet with the specified id
-pet(id: Int!): Pet!
-
-# Return a List of all pets that have been registered in the PetClinic
-pets: [Pet!]!
-
-specialties: [Specialty!]!
-
-engalar: String!
-}
-
-# The type (species) of a Pet
-type PetType {
-id: Int!
-name: String!
-}
-
-# Specialty of a Vetenarian
-type Specialty  {
-id: Int!
-name: String!
-}
-
-# Interface that describes a Person, i.e. a Vet or an Owner
-interface Person {
-id: Int!
-firstName: String!
-lastName: String!
-}
-
-# A Vetenerian
-type Vet implements Person {
-id: Int!
-
-# The Vetenarian's first name
-firstName: String!
-
-# The Vetenarian's last name
-lastName: String!
-
-# What is this Vet specialized in?
-specialties: [Specialty!]!
-}
-
-type VisitConnection {
-# total number of visits this VisitConnection represents
-totalCount: Int!
-
-# the actual visits (might be an empty list)
-visits: [Visit!]!
-}
-
-# A pet that might or might not have been seen in this petclinic for
-# one or more visits
-type Pet {
-id: Int!
-name: String!
-birthDate: Date!
-type: PetType!
-owner: Owner!
-
-# All visits to our PetClinic of this Pet
-visits: VisitConnection!
-}
-
-# A Visit of a Pet in our PetClinic
-type Visit {
-id: Int!
-# What did the Vet do during the Visit?
-description: String!
-
-pet: Pet!
-
-# When did this Visit happen?
-date: Date!
-}
-
-# An Owner is someone who owns a Pet
-type Owner implements Person {
-id: Int!
-firstName: String!
-lastName: String!
-address: String!
-city: String!
-telephone: String!
-
-# A list of Pets this Owner owns
-pets: [Pet!]!
-}
-
-
-# All the Mutations you can use to modify the PetClinics data
-#
-# For motivation of how the Mutation look see:
-# https://dev-blog.apollodata.com/designing-graphql-mutations-e09de826ed97
-
-type Mutation {
-
-# Add a new Owner
-addOwner(input: AddOwnerInput!): AddOwnerPayload!
-
-# Change an existing owner
-updateOwner(input: UpdateOwnerInput!): UpdateOwnerPayload!
-
-# Add a new Pet
-addPet(input: AddPetInput!): AddPetPayload!
-updatePet(input: UpdatePetInput!): UpdatePetPayload!
-
-# Add a Visit
-addVisit(input: AddVisitInput!): AddVisitPayload!
-
-# Add a Specialty
-addSpecialty(input: AddSpecialtyInput!): AddSpecialtyPayload!
-
-# Update (rename) a Specialty
-updateSpecialty(input: UpdateSpecialtyInput!): UpdateSpecialtyPayload!
-removeSpecialty(input: RemoveSpecialtyInput!): RemoveSpecialtyPayload!
-}
-
-# The Input for AddPet mutation
-input AddPetInput {
-ownerId: Int!
-name: String!
-birthDate: Date!
-typeId: Int!
-}
-
-type AddPetPayload {
-pet: Pet!
-}
-
-input UpdatePetInput {
-petId: Int!
-name: String
-birthDate: Date
-typeId: Int
-}
-
-type UpdatePetPayload {
-pet: Pet!
-}
-
-input AddOwnerInput {
-firstName: String
-lastName: String
-address: String
-city: String
-telephone: String
-}
-
-type AddOwnerPayload {
-owner: Owner!
-}
-
-input UpdateOwnerInput {
-ownerId: Int!
-firstName: String
-lastName: String
-address: String
-city: String
-telephone: String
-}
-
-type UpdateOwnerPayload {
-owner: Owner!
-}
-
-input AddVisitInput {
-petId: Int!
-description: String!
-date: Date!
-}
-type AddVisitPayload {
-visit: Visit!
-}
-
-# The input value for the addSpecialty Mutation
-input AddSpecialtyInput {
-name: String!
-}
-
-# Return Value of the addSpecialty Mutation
-type AddSpecialtyPayload {
-
-# The new Specialty including the assigned Id
-specialty: Specialty!
-}
-
-# The input value for the updateSpecialty Mutation
-# Takes the id of the specialty that should be updated and it's new Name
-input UpdateSpecialtyInput {
-# The id of the specialty that should be updated
-specialtyId: Int!
-
-# The new name of the Specialty
-name: String!
-}
-
-# Return value of the UpdateSpecialty Mutation
-type UpdateSpecialtyPayload {
-# The updated Specialty
-specialty: Specialty!
-}
-
-input RemoveSpecialtyInput {
-specialtyId: Int!
-}
-type RemoveSpecialtyPayload {
-specialties: [Specialty!]!
+{
+  "data": {
+    "__schema": {
+      "types": [
+        {
+          "name": "Query",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "Int",
+          "kind": "SCALAR"
+        },
+        {
+          "name": "String",
+          "kind": "SCALAR"
+        },
+        {
+          "name": "Mutation",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "PetType",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "Vet",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "Person",
+          "kind": "INTERFACE"
+        },
+        {
+          "name": "Owner",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "Pet",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "Date",
+          "kind": "SCALAR"
+        },
+        {
+          "name": "Specialty",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "AddOwnerPayload",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "UpdateOwnerPayload",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "AddPetPayload",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "UpdatePetPayload",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "AddVisitPayload",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "AddSpecialtyPayload",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "UpdateSpecialtyPayload",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "RemoveSpecialtyPayload",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "VisitConnection",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "Visit",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "AddOwnerInput",
+          "kind": "INPUT_OBJECT"
+        },
+        {
+          "name": "UpdateOwnerInput",
+          "kind": "INPUT_OBJECT"
+        },
+        {
+          "name": "AddPetInput",
+          "kind": "INPUT_OBJECT"
+        },
+        {
+          "name": "UpdatePetInput",
+          "kind": "INPUT_OBJECT"
+        },
+        {
+          "name": "AddVisitInput",
+          "kind": "INPUT_OBJECT"
+        },
+        {
+          "name": "AddSpecialtyInput",
+          "kind": "INPUT_OBJECT"
+        },
+        {
+          "name": "UpdateSpecialtyInput",
+          "kind": "INPUT_OBJECT"
+        },
+        {
+          "name": "RemoveSpecialtyInput",
+          "kind": "INPUT_OBJECT"
+        },
+        {
+          "name": "__Schema",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "__Type",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "__TypeKind",
+          "kind": "ENUM"
+        },
+        {
+          "name": "__Field",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "__InputValue",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "Boolean",
+          "kind": "SCALAR"
+        },
+        {
+          "name": "__EnumValue",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "__Directive",
+          "kind": "OBJECT"
+        },
+        {
+          "name": "__DirectiveLocation",
+          "kind": "ENUM"
+        }
+      ],
+      "queryType": {
+        "name": "Query",
+        "kind": "OBJECT",
+        "fields": [
+          {
+            "name": "pettypes",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "vets",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "owners",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "owner",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "pet",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "pets",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "specialties",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "engalar",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          }
+        ]
+      },
+      "mutationType": {
+        "name": "Mutation",
+        "kind": "OBJECT",
+        "fields": [
+          {
+            "name": "addOwner",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "updateOwner",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "addPet",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "updatePet",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "addVisit",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "addSpecialty",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "updateSpecialty",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          },
+          {
+            "name": "removeSpecialty",
+            "type": {
+              "name": null,
+              "kind": "NON_NULL"
+            }
+          }
+        ]
+      }
+    }
+  }
 }

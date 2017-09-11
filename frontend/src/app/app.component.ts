@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 
 import {Apollo} from 'apollo-angular';
-import gql from 'graphql-tag';
 
-import currentUserQuery from './currentUser.graphql';
 
+const currentUserQuery =
+  require('./currentUser.graphql');
 
 @Component({
   selector: 'app-root',
