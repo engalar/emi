@@ -16,9 +16,12 @@ export function provideClient(): ApolloClient {
 }
 
 import {AppComponent} from './app.component';
-import { CuttingModule } from './cutting/cutting.module';
+import {CuttingModule} from './cutting/cutting.module';
 import {RouterModule} from '@angular/router';
-import {MdButtonModule} from '@angular/material';
+import {MdAutocompleteModule, MdButtonModule, MdIconModule} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ColModule} from './col/col.module';
+import {HomeModule} from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,13 @@ import {MdButtonModule} from '@angular/material';
     RouterModule.forRoot([]),
     ApolloModule.forRoot(provideClient),
     CuttingModule,
-    MdButtonModule
+    FormsModule,
+    ReactiveFormsModule,
+    MdButtonModule,
+    MdAutocompleteModule,
+    MdIconModule,
+    ColModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

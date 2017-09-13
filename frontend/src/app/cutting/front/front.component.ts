@@ -15,11 +15,11 @@ export class FrontComponent implements OnInit {
   }
 
   bk () {
-    this.router.navigateByUrl('emi/bk');
+    this.router.navigateByUrl('emi/cutting/bk');
   }
 
   function () {
-    this.router.navigateByUrl('emi/hem');
+    this.router.navigateByUrl('emi/cutting/hem');
   }
 
 }

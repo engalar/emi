@@ -3,7 +3,10 @@ import {CommonModule} from '@angular/common';
 
 import {RootComponent} from './root/root.component';
 import {RouterModule, Routes} from '@angular/router';
-import {MdButtonModule, MdCardModule, MdDialogModule, MdGridListModule} from '@angular/material';
+import {
+  MdAutocompleteModule, MdButtonModule, MdCardModule, MdDialogModule, MdGridListModule,
+  MdTooltipModule
+} from '@angular/material';
 import {HemComponent} from './dialog/dialog.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -13,12 +16,12 @@ import { FrontComponent } from './front/front.component';
 import { BackViewComponent } from './back-view/back-view.component';
 
 const routes: Routes = [
-  {path: 'emi/cutting', component: RootComponent},
-  {path: 'emi/hem', component: HemComponent},
-  {path: 'emi/bk', component: BackViewComponent},
+  {path: 'emi/cutting/cutting', component: RootComponent},
+  {path: 'emi/cutting/hem', component: HemComponent},
+  {path: 'emi/cutting/bk', component: BackViewComponent},
 
-  {path: '', redirectTo: 'emi/cutting', pathMatch: 'full'},
-  {path: 'emi', redirectTo: 'emi/cutting', pathMatch: 'full'},
+  {path: '', redirectTo: 'emi/cutting/cutting', pathMatch: 'full'},
+  {path: 'emi', redirectTo: 'emi/cutting/cutting', pathMatch: 'full'},
   ];
 
 @NgModule({
@@ -31,6 +34,7 @@ const routes: Routes = [
     MdGridListModule,
     MdDialogModule,
     FormsModule,
+    MdTooltipModule,
   ],
   exports: [RootComponent, HemComponent],
   // entryComponents: [DialogComponent],

@@ -10,7 +10,7 @@ export class HemComponent implements OnInit {
   constructor(private router: Router) {
   }
   front () {
-    this.router.navigateByUrl('emi/cutting');
+    this.router.navigateByUrl('emi/cutting/cutting');
   }
 
   ngOnInit() {
