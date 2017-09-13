@@ -13,9 +13,9 @@ import { FrontComponent } from './front/front.component';
 import { BackViewComponent } from './back-view/back-view.component';
 
 const routes: Routes = [
-  {path: 'cutting', component: RootComponent},
-  {path: 'hem', component: HemComponent},
-  {path: 'bk', component: BackViewComponent},
+  {path: 'emi/cutting', component: RootComponent},
+  {path: 'emi/hem', component: HemComponent},
+  {path: 'emi/bk', component: BackViewComponent},
   ];
 
 @NgModule({

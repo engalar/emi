@@ -4,11 +4,16 @@
   background-color: #ff2021
   color: #ffffff
 
+@keyframes oscillate-enlarge
+  0%
+    transform: scale(0.3)
+  100%
+    transform: scale(1)
 
 .infobox
-  width: 25%
-  float: right
+  animation: oscillate-enlarge 0.6s ease-in-out 0s alternate
+  //transform-origin: 125px 115px
+
   background-color: rgba(11, 41, 55, 0.3)
   color: #ffffff
-  //margin-right: 20%
-  padding: 20px
+  margin: 20px

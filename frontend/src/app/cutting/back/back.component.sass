@@ -1,0 +1,35 @@
+@keyframes oscillate-enlarge
+  0%
+    transform: scale(0.3)
+  100%
+    transform: scale(1)
+
+.backshirtshow
+  animation: oscillate-enlarge 0.6s ease-in-out 0s alternate
+  //transform-origin: 125px 115px
+
+  background-color: rgba(11, 41, 55, 0.3)
+  color: #ffffff
+  margin: 20px
+
+h1
+  color: #ffffff
+
+
+.st0,.st1,.st2,.st3,.st4,.st5,.st7,.st8,.st9,.st10,.st11,.st12,.st13
+  fill: #ffffff
+  stroke: #525252
+  stroke-width: 0.5
+.st6
+  fill: #ffffff
+  stroke: #525252
+
+.st0,.st1,.st2,.st3,.st4,.st5,.st7,.st8,.st9,.st10,.st11,.st12,.st13
+  &:hover
+    fill: #ff2021
+    stroke: #525252
+    stroke-width: 0.5
+    cursor: pointer
+.st6:hover
+  fill: #ff2021
+  stroke: #10787D
