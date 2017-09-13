@@ -13,10 +13,10 @@ const currentUserQuery =
 })
 export class AppComponent {
   constructor(private apollo: Apollo) {
-    apollo.query({query: currentUserQuery})
-      .subscribe(result => {
-        console.log(result);
-      });
+    // apollo.query({query: currentUserQuery})
+    //   .subscribe(result => {
+    //     console.log(result);
+    //   });
   }
 
   title = 'app';

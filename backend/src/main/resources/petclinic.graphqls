@@ -1,8 +1,18 @@
 scalar Date
 
+type DefectRatio{
+  radio:Int!
+  detail:[DefectDetailType!]!
+}
+type DefectDetailType{
+  name:String!
+  score:Int!
+}
+
 # The Query type provides all entry points to the PetClinic GraphQL schema
 
 type Query {
+  defectatios: [DRefectRatio!]!
   # Return all known PetTypes
   pettypes: [PetType!]!
 

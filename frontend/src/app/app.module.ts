@@ -16,16 +16,20 @@ export function provideClient(): ApolloClient {
 }
 
 import {AppComponent} from './app.component';
-import {DemoModule} from './demo/demo.module';
+import { CuttingModule } from './cutting/cutting.module';
+import {RouterModule} from '@angular/router';
+import {MdButtonModule} from '@angular/material';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot([]),
     ApolloModule.forRoot(provideClient),
-    DemoModule,
+    CuttingModule,
+    MdButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -38,13 +38,26 @@ public class Query implements GraphQLQueryResolver {
     private final OwnerRepository ownerRepository;
     private final PetRepository petRepository;
     private final SpecialtyRepository specialtyRepository;
+    private final DefectDetailTypeRepository defectDetailTypeRepository;
 
-    public Query(PetTypeRepository petTypeRepository, VetRepository vetRepository, OwnerRepository ownerRepository, PetRepository petRepository, SpecialtyRepository specialtyRepository) {
+    public Query(PetTypeRepository petTypeRepository, VetRepository vetRepository, OwnerRepository ownerRepository, PetRepository petRepository, SpecialtyRepository specialtyRepository,DefectDetailTypeRepository defectDetailTypeRepository) {
         this.petTypeRepository = petTypeRepository;
         this.vetRepository = vetRepository;
         this.ownerRepository = ownerRepository;
         this.petRepository = petRepository;
         this.specialtyRepository = specialtyRepository;
+
+        this.defectDetailTypeRepository = defectDetailTypeRepository;
+    }
+    public List<DefectRatio> defectatios(){
+        DefectRatio defectRatio = new DefectRatio();
+        defectRatio.setId(1);
+        defectRatio.setName("name2");
+        return Lists.newArrayList(defectRatio);
+    }
+
+    public List<DefectDetailType> detail(DefectRatio dr) {
+        return Lists.newArrayList(defectDetailTypeRepository.find(dr));
     }
 
     public List<PetType> pettypes() {

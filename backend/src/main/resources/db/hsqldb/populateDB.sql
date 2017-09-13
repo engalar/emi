@@ -1,4 +1,7 @@
 -- noinspection SqlNoDataSourceInspectionForFile
+insert into defect_detail(id,score,name) values (1,90,'name1');
+insert into defect_detail(id,score,name) values (1,80,'name2');
+insert into defect_ratio (id,radio) values (1,30);
 
 INSERT INTO vets VALUES (1, 'James', 'Carter');
 INSERT INTO vets VALUES (2, 'Helen', 'Leary');

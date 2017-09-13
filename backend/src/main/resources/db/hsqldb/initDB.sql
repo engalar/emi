@@ -6,6 +6,16 @@ DROP TABLE pets IF EXISTS;
 DROP TABLE types IF EXISTS;
 DROP TABLE owners IF EXISTS;
 
+-- CREATE TABLE defect_ratio(
+--   id         INTEGER IDENTITY PRIMARY KEY,
+--   radio INTEGER
+-- );
+-- CREATE TABLE defect_detail(
+--   id         INTEGER NOT NULL ,
+--   score         INTEGER,
+--   name VARCHAR(30)
+-- );
+-- ALTER TABLE defect_detail ADD CONSTRAINT fk_defect_detail_defect_ratio FOREIGN KEY (id) REFERENCES defect_ratio (id);
 
 CREATE TABLE vets (
   id         INTEGER IDENTITY PRIMARY KEY,
