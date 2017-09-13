@@ -18,7 +18,7 @@ const genDirNodeModules = path.join(process.cwd(), 'src', '$$_gendir', 'node_mod
 const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"];
 const minimizeCss = false;
 const baseHref = "";
-const deployUrl = "";
+const deployUrl = "emi";
 const postcssPlugins = function () {
         // safe settings based on: https://github.com/ben-eb/cssnano/issues/358#issuecomment-283696193
         const importantCommentRe = /@preserve|@license|[@#]\s*source(?:Mapping)?URL|^!/i;

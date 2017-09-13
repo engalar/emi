@@ -341,6 +341,8 @@ var routes = [
     { path: 'emi/cutting', component: __WEBPACK_IMPORTED_MODULE_2__root_root_component__["a" /* RootComponent */] },
     { path: 'emi/hem', component: __WEBPACK_IMPORTED_MODULE_5__dialog_dialog_component__["a" /* HemComponent */] },
     { path: 'emi/bk', component: __WEBPACK_IMPORTED_MODULE_11__back_view_back_view_component__["a" /* BackViewComponent */] },
+    { path: '', redirectTo: 'emi/cutting', pathMatch: 'full' },
+    { path: 'emi', redirectTo: 'emi/cutting', pathMatch: 'full' },
 ];
 var CuttingModule = (function () {
     function CuttingModule() {
