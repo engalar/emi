@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {HemComponent} from '../dialog/dialog.component';
+import {MdDialog} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,24 +10,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class RootComponent implements OnInit {
 
-  name = 'Angular';
-  modal = document.getElementById('myModal');
-  btn = document.getElementById('myBtn');
-  span = document.getElementsByClassName('close')[0];
-
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
-  }
-
-  function() {
-    this.modal = document.getElementById('myModal');
-    this.modal.style.display = 'block';
-  }
-
-  close() {
-    this.modal = document.getElementById('myModal');
-    this.modal.style.display = 'none';
   }
 }
