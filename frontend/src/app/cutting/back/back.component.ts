@@ -14,6 +14,6 @@ export class BackComponent implements OnInit {
   ngOnInit() {
   }
   front () {
-    this.router.navigateByUrl('emi/cutting');
+    this.router.navigateByUrl('emi/cutting/cutting');
   }
 }
