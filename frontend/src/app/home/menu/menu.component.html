@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="row">
-    <app-menu-item *ngFor="let item of items"></app-menu-item>
-  </div>
+<div class="emi-container" [ngStyle]="containerStyle">
+  <app-menu-item *ngFor="let item of items" [item]="item" [location]="location"
+                 (click)="location.next(33)"></app-menu-item>
 </div>

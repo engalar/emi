@@ -1,18 +1,18 @@
 scalar Date
 
-type DefectRatio{
-  radio:Int!
-  detail:[DefectDetailType!]!
-}
-type DefectDetailType{
-  name:String!
-  score:Int!
-}
+#type DefectRatio{
+#  radio:Int!
+#  detail:[DefectDetailType!]!
+#}
+#type DefectDetailType{
+#  name:String!
+#  score:Int!
+#}
 
 # The Query type provides all entry points to the PetClinic GraphQL schema
 
 type Query {
-  defectatios: [DRefectRatio!]!
+#  defectatios: [DRefectRatio!]!
   # Return all known PetTypes
   pettypes: [PetType!]!
 
@@ -33,7 +33,7 @@ type Query {
 
   specialties: [Specialty!]!
 
-  engalar: String!
+  engalar(id:Int!): String!
 }
 
 # The type (species) of a Pet

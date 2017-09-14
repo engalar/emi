@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+
 
 @Component({
   selector: 'app-menu-item',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-item.component.sass']
 })
 export class MenuItemComponent implements OnInit {
+  height = '150px';
+  @Input() location: Observable<any>;
+  @Input() item: any;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.location.subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

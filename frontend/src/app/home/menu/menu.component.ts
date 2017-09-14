@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
+import {NgStyle} from '@angular/common';
 
 @Component({
   selector: 'app-menu',
@@ -6,11 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.sass']
 })
 export class MenuComponent implements OnInit {
-  items = [1, 2, 3, 4, 5];
+  items = [
+    {title: 'Pre- Production Information'},
+    {title: 'Cutting Information'},
+    {title: 'Sewing Information'},
+    {title: 'Washing  Information'},
+    {title: 'Finishing Information'},
+  ];
 
-  constructor() { }
+  location: Subject<any>;
+  containerStyle = {
+    // width: this.items.length * 100 + 'px',
+    display: 'flex',
+    'flex-wrap': 'nowrap'
+  };
+
+  constructor() {
+  }
 
   ngOnInit() {
+    this.location = new Subject<any>();
+    this.location.next({c: 3, l: 4});
+    this.location.next({c: 4, l: 4});
+    this.location.next({c: 1, l: 4});
   }
 
 }

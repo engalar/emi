@@ -364,7 +364,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "@-webkit-keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n.backshirtshow {\n  -webkit-animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n          animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n  background-color: rgba(11, 41, 55, 0.3);\n  color: #ffffff;\n  margin: 20px; }\n\nh1 {\n  color: #ffffff; }\n\n.st0, .st1, .st2, .st3, .st4, .st5, .st7, .st8, .st9, .st10, .st11, .st12, .st13 {\n  fill: #ffffff;\n  stroke: #525252;\n  stroke-width: 2; }\n\n.st6 {\n  fill: #ffffff;\n  stroke: #525252; }\n\n.st0:hover, .st1:hover, .st2:hover, .st3:hover, .st4:hover, .st5:hover, .st7:hover, .st8:hover, .st9:hover, .st10:hover, .st11:hover, .st12:hover, .st13:hover {\n  fill: #ff2021;\n  stroke: #525252;\n  stroke-width: 0.5;\n  cursor: pointer; }\n\n.st6:hover {\n  fill: #ff2021;\n  stroke: #10787D; }\n", ""]);
+exports.push([module.i, "@-webkit-keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n.backshirtshow {\n  -webkit-animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n          animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n  background-color: rgba(11, 41, 55, 0.3);\n  color: #ffffff;\n  margin: 20px; }\n\nh1 {\n  color: #ffffff; }\n\n.st0, .st1, .st2, .st3, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13 {\n  fill: #ffffff;\n  stroke: #525252;\n  stroke-width: 8; }\n\n.st0:hover, .st1:hover, .st2:hover, .st3:hover, .st4:hover, .st5:hover, .st6:hover, .st7:hover, .st8:hover, .st9:hover, .st10:hover, .st11:hover, .st12:hover, .st13:hover {\n  fill: #ff2021;\n  stroke: #525252;\n  stroke-width: 0.5;\n  cursor: pointer; }\n", ""]);
 
 // exports
 
@@ -574,7 +574,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "@-webkit-keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n.frontshirtshow {\n  -webkit-animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n          animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n  background-color: rgba(11, 41, 55, 0.3);\n  color: #ffffff;\n  margin: 20px; }\n\nh1 {\n  color: #ffffff; }\n\n.st0, .st1, .st2, .st3, .st4, .st5, .st7, .st8, .st9, .st10, .st11, .st12, .st13 {\n  fill: #ffffff;\n  stroke: #525252;\n  stroke-width: 2; }\n\n.st6 {\n  fill: #ffffff;\n  stroke: #525252; }\n\n.st0:hover, .st1:hover, .st2:hover, .st3:hover, .st4:hover, .st5:hover, .st7:hover, .st8:hover, .st9:hover, .st10:hover, .st11:hover, .st12:hover, .st13:hover {\n  fill: #ff2021;\n  stroke: #525252;\n  stroke-width: 0.5;\n  cursor: pointer; }\n\n.st6:hover {\n  fill: #ff2021;\n  stroke: #10787D; }\n", ""]);
+exports.push([module.i, "@-webkit-keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n.frontshirtshow {\n  -webkit-animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n          animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n  background-color: rgba(11, 41, 55, 0.3);\n  color: #ffffff;\n  margin: 20px; }\n\nh1 {\n  color: #ffffff; }\n\n.st0, .st1, .st2, .st3, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13 {\n  fill: #ffffff;\n  stroke: #525252;\n  stroke-width: 8; }\n\n.st0:hover, .st1:hover, .st2:hover, .st3:hover, .st4:hover, .st5:hover, .st6:hover, .st7:hover, .st8:hover, .st9:hover, .st10:hover, .st11:hover, .st12:hover, .st13:hover {\n  fill: #ff2021;\n  stroke: #525252;\n  stroke-width: 0.5;\n  cursor: pointer; }\n", ""]);
 
 // exports
 
@@ -762,7 +762,7 @@ var _a;
 /***/ "./src/app/home/home-view/home-view.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <button  md-raised-button color=\"primary\" (click)=\"search()\">Search</button>\n  </div>\n  <div class=\"row\">\n    <app-menu></app-menu>\n  </div>\n  <div class=\"row\">\n    <app-work-space></app-work-space>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <button  md-raised-button color=\"primary\" (click)=\"search()\">Search</button>\n  </div>\n  <div class=\"row\">\n    <app-menu class=\"col\"></app-menu>\n  </div>\n  <div class=\"row\">\n    <app-work-space></app-work-space>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -840,12 +840,14 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__work_space_work_space_component__ = __webpack_require__("./src/app/home/work-space/work-space.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__work_space_item_work_space_item_component__ = __webpack_require__("./src/app/home/work-space-item/work-space-item.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -869,6 +871,37 @@ HomeModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_7__angular_router__["b" /* RouterModule */].forRoot(routes),
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["a" /* MdAutocompleteModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["b" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["c" /* MdButtonToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["d" /* MdCardModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["e" /* MdCheckboxModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["f" /* MdChipsModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["g" /* MdCoreModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["h" /* MdDatepickerModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["i" /* MdDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["j" /* MdExpansionModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["k" /* MdGridListModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["l" /* MdIconModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["m" /* MdInputModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["n" /* MdListModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["o" /* MdMenuModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["p" /* MdNativeDateModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["q" /* MdPaginatorModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["r" /* MdProgressBarModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["s" /* MdProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["t" /* MdRadioModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["u" /* MdRippleModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["v" /* MdSelectModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["w" /* MdSidenavModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["y" /* MdSliderModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["x" /* MdSlideToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["z" /* MdSnackBarModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["A" /* MdSortModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["B" /* MdTableModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["C" /* MdTabsModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["D" /* MdToolbarModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["E" /* MdTooltipModule */],
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_2__home_view_home_view_component__["a" /* HomeViewComponent */], __WEBPACK_IMPORTED_MODULE_3__menu_menu_component__["a" /* MenuComponent */], __WEBPACK_IMPORTED_MODULE_4__menu_item_menu_item_component__["a" /* MenuItemComponent */], __WEBPACK_IMPORTED_MODULE_5__work_space_work_space_component__["a" /* WorkSpaceComponent */], __WEBPACK_IMPORTED_MODULE_6__work_space_item_work_space_item_component__["a" /* WorkSpaceItemComponent */]]
     })
@@ -881,7 +914,7 @@ HomeModule = __decorate([
 /***/ "./src/app/home/menu-item/menu-item.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" style=\"width: 15rem;\">\n  <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">Menu item</h4>\n    <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n    <a href=\"emi/cutting/cutting\" class=\"btn btn-primary\">Go somewhere</a>\n  </div>\n</div>\n"
+module.exports = "<div class=\"emi-menu-item\" [style.height]=\"height\">\n    <h4>{{item.title}}</h4>\n</div>\n"
 
 /***/ }),
 
@@ -893,7 +926,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".emi-menu-item {\n  font-size: 1em;\n  padding: 1em;\n  width: 200px; }\n  .emi-menu-item:hover {\n    cursor: pointer;\n    z-index: 5;\n    background: #fff;\n    border: none;\n    box-shadow: 0 1px 3px 0 #bcbdbd, 0 0 0 1px #d4d4d5;\n    -webkit-transform: translateY(-3px);\n    transform: translateY(-3px); }\n", ""]);
 
 // exports
 
@@ -909,6 +942,8 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuItemComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__("./node_modules/rxjs/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -919,13 +954,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var MenuItemComponent = (function () {
     function MenuItemComponent() {
+        this.height = '150px';
     }
     MenuItemComponent.prototype.ngOnInit = function () {
+        this.location.subscribe(function (data) {
+            console.log(data);
+        });
     };
     return MenuItemComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"]) === "function" && _a || Object)
+], MenuItemComponent.prototype, "location", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], MenuItemComponent.prototype, "item", void 0);
 MenuItemComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-menu-item',
@@ -935,6 +983,7 @@ MenuItemComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], MenuItemComponent);
 
+var _a;
 //# sourceMappingURL=menu-item.component.js.map
 
 /***/ }),
@@ -942,7 +991,7 @@ MenuItemComponent = __decorate([
 /***/ "./src/app/home/menu/menu.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <app-menu-item *ngFor=\"let item of items\"></app-menu-item>\n  </div>\n</div>\n"
+module.exports = "<div class=\"emi-container\" [ngStyle]=\"containerStyle\">\n  <app-menu-item *ngFor=\"let item of items\" [item]=\"item\" [location]=\"location\"\n                 (click)=\"location.next(33)\"></app-menu-item>\n</div>\n"
 
 /***/ }),
 
@@ -954,7 +1003,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".emi-container {\n  height: 100px;\n  overflow-x: scroll; }\n\n::-webkit-scrollbar {\n  display: none; }\n", ""]);
 
 // exports
 
@@ -970,6 +1019,8 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("./node_modules/rxjs/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -980,11 +1031,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var MenuComponent = (function () {
     function MenuComponent() {
-        this.items = [1, 2, 3, 4, 5];
+        this.items = [
+            { title: 'Pre- Production Information' },
+            { title: 'Cutting Information' },
+            { title: 'Sewing Information' },
+            { title: 'Washing  Information' },
+            { title: 'Finishing Information' },
+        ];
+        this.containerStyle = {
+            // width: this.items.length * 100 + 'px',
+            display: 'flex',
+            'flex-wrap': 'nowrap'
+        };
     }
     MenuComponent.prototype.ngOnInit = function () {
+        this.location = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this.location.next({ c: 3, l: 4 });
+        this.location.next({ c: 4, l: 4 });
+        this.location.next({ c: 1, l: 4 });
     };
     return MenuComponent;
 }());
@@ -1004,7 +1071,7 @@ MenuComponent = __decorate([
 /***/ "./src/app/home/work-space-item/work-space-item.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" style=\"width: 15rem;\">\n  <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">Card title</h4>\n    <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n  </div>\n</div>\n"
+module.exports = "<div routerLink=\"/emi/cutting/cutting\" class=\"card\" style=\"width: 15rem;background-color: darkcyan\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">Card title</h4>\n    <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1065,7 +1132,7 @@ WorkSpaceItemComponent = __decorate([
 /***/ "./src/app/home/work-space/work-space.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <app-work-space-item *ngFor=\"let item of items\" class=\"col\"></app-work-space-item>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <app-work-space-item *ngFor=\"let item of items\" class=\"col\" style=\"padding: 2em;\"></app-work-space-item>\n</div>\n"
 
 /***/ }),
 
@@ -1105,7 +1172,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var WorkSpaceComponent = (function () {
     function WorkSpaceComponent() {
-        this.items = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        this.items = [1, 2, 3, 4, 5, 6, 7, 8];
     }
     WorkSpaceComponent.prototype.ngOnInit = function () {
     };
