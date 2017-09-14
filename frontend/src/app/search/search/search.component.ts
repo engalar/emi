@@ -1,30 +1,17 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import {Apollo} from 'apollo-angular';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
-
-
-const currentUserQuery =
-  require('./currentUser.graphql');
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.sass']
 })
-export class AppComponent {
-  // constructor(private apollo: Apollo) {
-    // apollo.query({query: currentUserQuery})
-    //   .subscribe(result => {
-    //     console.log(result);
-    //   });
-  // }
+export class SearchComponent implements OnInit {
   stateCtrl: FormControl;
   filteredStates: Observable<any[]>;
-
   states: any[] = [
     {
       name: 'Arkansas',
@@ -59,8 +46,12 @@ export class AppComponent {
       .map(state => state ? this.filterStates(state) : this.states.slice());
   }
 
+  ngOnInit(): void {
+  }
+
   filterStates(name: string) {
     return this.states.filter(state =>
       state.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
+
 }

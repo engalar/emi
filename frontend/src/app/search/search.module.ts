@@ -1,23 +1,8 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-
-import {ApolloClient, createNetworkInterface} from 'apollo-client';
-import {ApolloModule} from 'apollo-angular';
-
-// by default, this client will send queries to `/graphql` (relative to the URL of your app)
-const client = new ApolloClient({
-  networkInterface: createNetworkInterface({
-    uri: 'http://localhost:9977/graphql'
-  }),
-});
-
-export function provideClient(): ApolloClient {
-  return client;
-}
-
-import {AppComponent} from './app.component';
-import {CuttingModule} from './cutting/cutting.module';
-import {RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import { SearchItemComponent } from './search-item/search-item.component';
+import { SearchComponent } from './search/search.component';
 import {MdAutocompleteModule,
   MdButtonModule,
   MdButtonToggleModule,
@@ -49,25 +34,19 @@ import {MdAutocompleteModule,
   MdTabsModule,
   MdToolbarModule,
   MdTooltipModule} from '@angular/material';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ColModule} from './col/col.module';
-import {SearchModule} from './search/search.module';
-import {HomeModule} from './home/home.module';
+import { SearchViewComponent } from './search-view/search-view.component';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+
+const routes: Routes = [
+  {path: 'emi/search', component: SearchViewComponent},
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
   imports: [
-    BrowserModule,
-    RouterModule.forRoot([]),
-    ApolloModule.forRoot(provideClient),
-    CuttingModule,
+    CommonModule,
+    RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
-    ColModule,
-    SearchModule,
-    HomeModule,
 
     MdAutocompleteModule,
     MdButtonModule,
@@ -101,8 +80,6 @@ import {HomeModule} from './home/home.module';
     MdToolbarModule,
     MdTooltipModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [SearchItemComponent, SearchComponent, SearchViewComponent]
 })
-export class AppModule {
-}
+export class SearchModule { }

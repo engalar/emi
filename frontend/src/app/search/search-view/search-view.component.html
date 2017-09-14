@@ -1,4 +1,7 @@
-<div class="container-fluid">
+<div class="container">
+  <div class="row">
+    <app-search class="col align-self-center"></app-search>
+  </div>
   <div class="row">
     <app-search-item *ngFor="let item of hisItems" class="col-md-2" [item]="item"></app-search-item>
   </div>

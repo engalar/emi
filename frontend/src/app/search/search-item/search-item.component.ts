@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./search-item.component.sass']
 })
 export class SearchItemComponent implements OnInit {
-  @Input() item
+  @Input() item;
 
   constructor() {
   }
