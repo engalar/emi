@@ -13,6 +13,10 @@ export class HemComponent implements OnInit {
     this.router.navigateByUrl('emi/cutting/cutting');
   }
 
+  home () {
+    this.router.navigateByUrl('emi/home');
+  }
+
   ngOnInit() {
   }
 }

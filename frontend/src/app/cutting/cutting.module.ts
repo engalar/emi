@@ -19,9 +19,6 @@ const routes: Routes = [
   {path: 'emi/cutting/cutting', component: RootComponent},
   {path: 'emi/cutting/hem', component: HemComponent},
   {path: 'emi/cutting/bk', component: BackViewComponent},
-
-  {path: '', redirectTo: 'emi/cutting/cutting', pathMatch: 'full'},
-  {path: 'emi', redirectTo: 'emi/cutting/cutting', pathMatch: 'full'},
   ];
 
 @NgModule({

@@ -16,7 +16,7 @@ webpackEmptyAsyncContext.id = "./src/$$_gendir lazy recursive";
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<a routerLink=\"/cutting\" routerLinkActive=\"active\">cutting</a>-->\n<!--<button md-button color=\"warn\">Warn</button>-->\n\n<router-outlet></router-outlet>\n\n"
+module.exports = "\n\n<router-outlet></router-outlet>\n\n"
 
 /***/ }),
 
@@ -44,7 +44,11 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_apollo_angular__ = __webpack_require__("./node_modules/apollo-angular/build/src/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_startWith__ = __webpack_require__("./node_modules/rxjs/add/operator/startWith.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_startWith__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,16 +60,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var currentUserQuery = __webpack_require__("./src/app/currentUser.graphql");
 var AppComponent = (function () {
-    function AppComponent(apollo) {
-        this.apollo = apollo;
-        this.title = 'app';
-        // apollo.query({query: currentUserQuery})
-        //   .subscribe(result => {
-        //     console.log(result);
-        //   });
+    function AppComponent() {
+        var _this = this;
+        this.states = [
+            {
+                name: 'Arkansas',
+                population: '2.978M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
+            },
+            {
+                name: 'California',
+                population: '39.14M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+            },
+            {
+                name: 'Florida',
+                population: '20.27M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+            },
+            {
+                name: 'Texas',
+                population: '27.47M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
+            }
+        ];
+        this.stateCtrl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]();
+        this.filteredStates = this.stateCtrl.valueChanges
+            .startWith(null)
+            .map(function (state) { return state ? _this.filterStates(state) : _this.states.slice(); });
     }
+    AppComponent.prototype.filterStates = function (name) {
+        return this.states.filter(function (state) {
+            return state.name.toLowerCase().indexOf(name.toLowerCase()) === 0;
+        });
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -74,10 +110,9 @@ AppComponent = __decorate([
         template: __webpack_require__("./src/app/app.component.html"),
         styles: [__webpack_require__("./src/app/app.component.sass")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_apollo_angular__["a" /* Apollo */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_apollo_angular__["a" /* Apollo */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [])
 ], AppComponent);
 
-var _a;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -96,6 +131,10 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__cutting_cutting_module__ = __webpack_require__("./src/app/cutting/cutting.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__col_col_module__ = __webpack_require__("./src/app/col/col.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__search_search_module__ = __webpack_require__("./src/app/search/search.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__home_home_module__ = __webpack_require__("./src/app/home/home.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -119,6 +158,10 @@ function provideClient() {
 
 
 
+
+
+
+
 var AppModule = (function () {
     function AppModule() {
     }
@@ -132,9 +175,44 @@ AppModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_6__angular_router__["b" /* RouterModule */].forRoot([]),
-            __WEBPACK_IMPORTED_MODULE_3_apollo_angular__["b" /* ApolloModule */].forRoot(provideClient),
+            __WEBPACK_IMPORTED_MODULE_3_apollo_angular__["a" /* ApolloModule */].forRoot(provideClient),
             __WEBPACK_IMPORTED_MODULE_5__cutting_cutting_module__["a" /* CuttingModule */],
-            __WEBPACK_IMPORTED_MODULE_7__angular_material__["a" /* MdButtonModule */]
+            __WEBPACK_IMPORTED_MODULE_8__angular_forms__["d" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_forms__["i" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_9__col_col_module__["a" /* ColModule */],
+            __WEBPACK_IMPORTED_MODULE_10__search_search_module__["a" /* SearchModule */],
+            __WEBPACK_IMPORTED_MODULE_11__home_home_module__["a" /* HomeModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["a" /* MdAutocompleteModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["b" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["c" /* MdButtonToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["d" /* MdCardModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["e" /* MdCheckboxModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["f" /* MdChipsModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["g" /* MdCoreModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["h" /* MdDatepickerModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["i" /* MdDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["j" /* MdExpansionModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["k" /* MdGridListModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["l" /* MdIconModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["m" /* MdInputModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["n" /* MdListModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["o" /* MdMenuModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["p" /* MdNativeDateModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["q" /* MdPaginatorModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["r" /* MdProgressBarModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["s" /* MdProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["t" /* MdRadioModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["u" /* MdRippleModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["v" /* MdSelectModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["w" /* MdSidenavModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["y" /* MdSliderModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["x" /* MdSlideToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["z" /* MdSnackBarModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["A" /* MdSortModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["B" /* MdTableModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["C" /* MdTabsModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["D" /* MdToolbarModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_material__["E" /* MdTooltipModule */],
         ],
         providers: [],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
@@ -142,6 +220,43 @@ AppModule = __decorate([
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "./src/app/col/col.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ColModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var routes = [];
+var ColModule = (function () {
+    function ColModule() {
+    }
+    return ColModule;
+}());
+ColModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(routes),
+        ],
+        declarations: []
+    })
+], ColModule);
+
+//# sourceMappingURL=col.module.js.map
 
 /***/ }),
 
@@ -237,7 +352,7 @@ BackViewComponent = __decorate([
 /***/ "./src/app/cutting/back/back.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"backshirtshow\">\n  <h2>Back Shirt Component Selection</h2>\n\n  <button md-button (click)=\"front()\">Front</button>\n  <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n       viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n  <g id=\"yoke\">\n      <path class=\"st0\" d=\"M364.4,177.7c14-10.3,28.7-20.8,44.1-31.2c15.1-10.3,30-19.9,44.5-29c13.5-3.8,31.5-7.4,53-8\n          c23-0.6,42.4,2.6,56.5,6c9.7,6.9,19.4,13.8,29,20.7c10.8,6.9,21.6,13.8,32.5,20.8c8.2,6.8,16.3,13.7,24.5,20.5\n          c-0.7,6.2-1.3,12.3-2,18.5c-1.3,16.2-2.7,32.3-4,48.5c-38.7-5.6-83.4-9.7-133-10c-51.4-0.3-97.7,3.5-137.5,9\n          c-0.7-9.9-1.7-20-2.8-30.5C367.8,200.8,366.2,189,364.4,177.7z\"/>\n  </g>\n  <g id=\"collar\">\n      <path class=\"st1\" d=\"M454,115.7c13.8-3.2,31.5-5.9,52-6.2c21.7-0.2,40.4,2.5,54.7,5.6c-0.6-8.2-1.8-17.3-3.7-27.1\n          c-1.3-6.6-2.9-12.8-4.5-18.5c-8-3.9-24.8-10.8-47-10c-23,0.8-39.8,9.4-47.5,14C456.7,87.6,455.3,101.6,454,115.7z\"/>\n      <path class=\"st2\" d=\"M650.7,190\"/>\n  </g>\n  <g id=\"sleeve\">\n      <g>\n          <path class=\"st3\" d=\"M644.8,177.5c11.6,20.4,22.3,43,30.6,67.6c5.2,15.4,9,30.2,11.6,44.2c3.1,9.4,6.9,22.1,10.5,37.2\n              c3.9,16.4,6.1,29.5,7.7,40.6c7,46.8,10.1,93,10.3,96.3c1.9,29.3,3.4,66.3,3,109.5c-0.3,14.1-0.5,28.1-0.8,42.2\n              c-8.1-1.2-18.4-2.3-30.4-2.7c-14.2-0.5-26.4,0.1-35.6,0.9c0.7-8.4,1.4-21.5,0.4-37.8c-0.8-12.6-2.2-20.1-4.9-40\n              c-0.9-6.5-2.2-18.1-4.9-41.3c-4.2-36.6-6.2-64.7-10.7-119.6c-1.5-17.8-3.7-44.4-6.7-77.2c1.7-16.6,3.4-33.1,5.1-49.7\n              c2.8-11.2,5.4-22.6,7.8-34.1C640.4,201.4,642.7,189.3,644.8,177.5z\"/>\n          <path class=\"st4\" d=\"M675.6,491c-2.9,1.7-5.7,3.3-8.6,5c-0.6,25.7-1.2,51.3-1.8,77c3.5-0.4,7-0.7,10.6-1.1c2.7-0.1,5.3-0.1,8-0.2\n              c0-25.1,0-50.2,0-75.4C681,494.6,678.3,492.8,675.6,491z\"/>\n          <path class=\"st4\" d=\"M703.5,529c-1.1,14.4-2.3,28.9-3.4,43.3\"/>\n          <path class=\"st4\" d=\"M652.2,576.3c5.9-2.2,11.6-3.2,15.2-3.7c5.8-0.8,10.5-0.9,16.4-0.9c8.2-0.1,14.2,0.4,16.4,0.6\n              c8.7,0.7,12.5,1.8,13.9,2.2c2,0.6,3.5,1.2,4.5,1.7\"/>\n          <path class=\"st4\" d=\"M666.4,573.7c-0.4,8-0.8,16-1.1,24c5.5,4.4,11,8.8,16.5,13.2\"/>\n          <path class=\"st4\" d=\"M672.7,605.6c-1.9,1.8-3.8,3.5-5.6,5.3\"/>\n          <path class=\"st4\" d=\"M652.5,581c4.2-1.3,15.9-4.7,32.3-4.5c17.7,0.2,29.7,4.4,33.6,5.9\"/>\n      </g>\n  </g>\n  <g id=\"sleeve2\">\n      <path class=\"st5\" d=\"M354.4,203.9c-6.1,13.8-12.3,27.5-18.4,41.3c-6,12.9-12,25.8-18,38.7c-4.3,9.4-8.5,18.8-12.8,28.2\n          c-1.7,5.6-3.5,11.3-5.2,16.9c-1.5,23.8-3.1,47.5-4.6,71.3c-0.8,22.3-1.6,44.6-2.5,66.9c2,4.6,4.1,9.2,6.1,13.9\n          c3.6,9.5,7.2,19,10.8,28.5c7,12.3,14,24.5,21,36.8c8.7,11.3,17.3,22.7,26,34c6.9,9.3,13.9,18.6,20.8,27.9c-0.2-15.7,0-31.7,0.5-48\n          c0.7-23.5,2.1-46.4,4-68.6c-6.1-12.2-12.1-24.5-18.2-36.7c-3.9-11.6-7.9-23.3-11.8-34.9c6.1-17.3,12.3-34.5,18.4-51.8\n          c3.3-7.5,6.6-14.9,9.9-22.4c-0.2-33.2-0.3-66.3-0.5-99.5c-1.8-9.6-3.6-19.2-5.4-28.8c-2.1-13.1-4.3-26.2-6.4-39.3\n          C363.5,186.8,359,195.3,354.4,203.9z\"/>\n      <path class=\"st2\" d=\"M352.4,419.6c-8.1,21-16.2,42.1-24.4,63.1\"/>\n      <path class=\"st2\" d=\"M381.5,290.3\"/>\n      <path class=\"st2\" d=\"M376.4,563.7c-3.6,3-7.6,6.9-11.6,11.9c-3.6,4.5-6.4,8.7-8.4,12.4\"/>\n  </g>\n  <g id=\"back_1_\">\n      <path class=\"st6\" d=\"M376.4,236.8c36.7-2.7,79-4.7,125.9-4.6c48.7,0,92.5,2.2,130.3,5.2c-11.9,45.9-12.1,81-9.9,105\n          c1.1,12.1,3.6,30.5,5.7,62.3c0.7,10.1,1.5,25,2.2,48.4c0.8,26.2,1.4,67.1,0.3,121.7c-24.5,5.7-70,14.2-128.6,13.1\n          c-56.7-1-99.9-10.4-123.6-16.8c3.6-41.4,5.9-84,6.5-128C386.3,371.1,383,302.2,376.4,236.8z\"/>\n  </g>\n  <g id=\"hemandtail\">\n      <path class=\"st7\" d=\"M382.1,570.1c0.1,17.8,0.1,35.5,0.2,53.3c15.4,8.3,29.1,14,39.2,17.8c23,8.6,53,19.9,91,18.6\n          c3.7-0.1,16.9-0.7,33.6-4.1c15.4-3.1,27.9-7.3,37-11c8.8-3.7,18.5-8.2,28.6-13.8c7.7-4.3,14.6-8.6,20.7-12.7\n          c0.1-14.3,0.2-28.6,0.3-42.8c-18.1,3-37.8,5.6-59,7.5c-22.1,1.9-42.8,2.7-61.8,2.8C468.6,580.5,425.3,575.3,382.1,570.1z\"/>\n  </g>\n  </svg>\n</div>\n"
+module.exports = "<div class=\"backshirtshow\">\n  <h2>Back Shirt Component Selection</h2>\n\n  <button  md-raised-button color=\"primary\" (click)=\"home()\">Home</button>\n  <button  md-raised-button color=\"primary\" (click)=\"front()\">Front</button>\n  <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n       viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n  <g id=\"yoke\" mdTooltipPosition=\"after\" mdTooltip=\"yoke\">\n      <path class=\"st0\" d=\"M364.4,177.7c14-10.3,28.7-20.8,44.1-31.2c15.1-10.3,30-19.9,44.5-29c13.5-3.8,31.5-7.4,53-8\n          c23-0.6,42.4,2.6,56.5,6c9.7,6.9,19.4,13.8,29,20.7c10.8,6.9,21.6,13.8,32.5,20.8c8.2,6.8,16.3,13.7,24.5,20.5\n          c-0.7,6.2-1.3,12.3-2,18.5c-1.3,16.2-2.7,32.3-4,48.5c-38.7-5.6-83.4-9.7-133-10c-51.4-0.3-97.7,3.5-137.5,9\n          c-0.7-9.9-1.7-20-2.8-30.5C367.8,200.8,366.2,189,364.4,177.7z\"/>\n  </g>\n  <g id=\"collar\" mdTooltipPosition=\"after\" mdTooltip=\"collar\">\n      <path class=\"st1\" d=\"M454,115.7c13.8-3.2,31.5-5.9,52-6.2c21.7-0.2,40.4,2.5,54.7,5.6c-0.6-8.2-1.8-17.3-3.7-27.1\n          c-1.3-6.6-2.9-12.8-4.5-18.5c-8-3.9-24.8-10.8-47-10c-23,0.8-39.8,9.4-47.5,14C456.7,87.6,455.3,101.6,454,115.7z\"/>\n      <path class=\"st2\" d=\"M650.7,190\"/>\n  </g>\n  <g id=\"sleeve\" mdTooltipPosition=\"after\" mdTooltip=\"sleeve\">\n      <g>\n          <path class=\"st3\" d=\"M644.8,177.5c11.6,20.4,22.3,43,30.6,67.6c5.2,15.4,9,30.2,11.6,44.2c3.1,9.4,6.9,22.1,10.5,37.2\n              c3.9,16.4,6.1,29.5,7.7,40.6c7,46.8,10.1,93,10.3,96.3c1.9,29.3,3.4,66.3,3,109.5c-0.3,14.1-0.5,28.1-0.8,42.2\n              c-8.1-1.2-18.4-2.3-30.4-2.7c-14.2-0.5-26.4,0.1-35.6,0.9c0.7-8.4,1.4-21.5,0.4-37.8c-0.8-12.6-2.2-20.1-4.9-40\n              c-0.9-6.5-2.2-18.1-4.9-41.3c-4.2-36.6-6.2-64.7-10.7-119.6c-1.5-17.8-3.7-44.4-6.7-77.2c1.7-16.6,3.4-33.1,5.1-49.7\n              c2.8-11.2,5.4-22.6,7.8-34.1C640.4,201.4,642.7,189.3,644.8,177.5z\"/>\n          <path class=\"st4\" d=\"M675.6,491c-2.9,1.7-5.7,3.3-8.6,5c-0.6,25.7-1.2,51.3-1.8,77c3.5-0.4,7-0.7,10.6-1.1c2.7-0.1,5.3-0.1,8-0.2\n              c0-25.1,0-50.2,0-75.4C681,494.6,678.3,492.8,675.6,491z\"/>\n          <path class=\"st4\" d=\"M703.5,529c-1.1,14.4-2.3,28.9-3.4,43.3\"/>\n          <path class=\"st4\" d=\"M652.2,576.3c5.9-2.2,11.6-3.2,15.2-3.7c5.8-0.8,10.5-0.9,16.4-0.9c8.2-0.1,14.2,0.4,16.4,0.6\n              c8.7,0.7,12.5,1.8,13.9,2.2c2,0.6,3.5,1.2,4.5,1.7\"/>\n          <path class=\"st4\" d=\"M666.4,573.7c-0.4,8-0.8,16-1.1,24c5.5,4.4,11,8.8,16.5,13.2\"/>\n          <path class=\"st4\" d=\"M672.7,605.6c-1.9,1.8-3.8,3.5-5.6,5.3\"/>\n          <path class=\"st4\" d=\"M652.5,581c4.2-1.3,15.9-4.7,32.3-4.5c17.7,0.2,29.7,4.4,33.6,5.9\"/>\n      </g>\n  </g>\n  <g id=\"sleeve2\" mdTooltipPosition=\"after\" mdTooltip=\"sleeve2\">\n      <path class=\"st5\" d=\"M354.4,203.9c-6.1,13.8-12.3,27.5-18.4,41.3c-6,12.9-12,25.8-18,38.7c-4.3,9.4-8.5,18.8-12.8,28.2\n          c-1.7,5.6-3.5,11.3-5.2,16.9c-1.5,23.8-3.1,47.5-4.6,71.3c-0.8,22.3-1.6,44.6-2.5,66.9c2,4.6,4.1,9.2,6.1,13.9\n          c3.6,9.5,7.2,19,10.8,28.5c7,12.3,14,24.5,21,36.8c8.7,11.3,17.3,22.7,26,34c6.9,9.3,13.9,18.6,20.8,27.9c-0.2-15.7,0-31.7,0.5-48\n          c0.7-23.5,2.1-46.4,4-68.6c-6.1-12.2-12.1-24.5-18.2-36.7c-3.9-11.6-7.9-23.3-11.8-34.9c6.1-17.3,12.3-34.5,18.4-51.8\n          c3.3-7.5,6.6-14.9,9.9-22.4c-0.2-33.2-0.3-66.3-0.5-99.5c-1.8-9.6-3.6-19.2-5.4-28.8c-2.1-13.1-4.3-26.2-6.4-39.3\n          C363.5,186.8,359,195.3,354.4,203.9z\"/>\n      <path class=\"st2\" d=\"M352.4,419.6c-8.1,21-16.2,42.1-24.4,63.1\"/>\n      <path class=\"st2\" d=\"M381.5,290.3\"/>\n      <path class=\"st2\" d=\"M376.4,563.7c-3.6,3-7.6,6.9-11.6,11.9c-3.6,4.5-6.4,8.7-8.4,12.4\"/>\n  </g>\n  <g id=\"back_1_\" mdTooltipPosition=\"after\" mdTooltip=\"back_1_\">\n      <path class=\"st6\" d=\"M376.4,236.8c36.7-2.7,79-4.7,125.9-4.6c48.7,0,92.5,2.2,130.3,5.2c-11.9,45.9-12.1,81-9.9,105\n          c1.1,12.1,3.6,30.5,5.7,62.3c0.7,10.1,1.5,25,2.2,48.4c0.8,26.2,1.4,67.1,0.3,121.7c-24.5,5.7-70,14.2-128.6,13.1\n          c-56.7-1-99.9-10.4-123.6-16.8c3.6-41.4,5.9-84,6.5-128C386.3,371.1,383,302.2,376.4,236.8z\"/>\n  </g>\n  <g id=\"hemandtail\" mdTooltipPosition=\"after\" mdTooltip=\"hemandtail\">\n      <path class=\"st7\" d=\"M382.1,570.1c0.1,17.8,0.1,35.5,0.2,53.3c15.4,8.3,29.1,14,39.2,17.8c23,8.6,53,19.9,91,18.6\n          c3.7-0.1,16.9-0.7,33.6-4.1c15.4-3.1,27.9-7.3,37-11c8.8-3.7,18.5-8.2,28.6-13.8c7.7-4.3,14.6-8.6,20.7-12.7\n          c0.1-14.3,0.2-28.6,0.3-42.8c-18.1,3-37.8,5.6-59,7.5c-22.1,1.9-42.8,2.7-61.8,2.8C468.6,580.5,425.3,575.3,382.1,570.1z\"/>\n  </g>\n  </svg>\n</div>\n"
 
 /***/ }),
 
@@ -249,7 +364,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "@-webkit-keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n.backshirtshow {\n  -webkit-animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n          animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n  background-color: rgba(11, 41, 55, 0.3);\n  color: #ffffff;\n  margin: 20px; }\n\nh1 {\n  color: #ffffff; }\n\n.st0, .st1, .st2, .st3, .st4, .st5, .st7, .st8, .st9, .st10, .st11, .st12, .st13 {\n  fill: #ffffff;\n  stroke: #525252;\n  stroke-width: 0.5; }\n\n.st6 {\n  fill: #ffffff;\n  stroke: #525252; }\n\n.st0:hover, .st1:hover, .st2:hover, .st3:hover, .st4:hover, .st5:hover, .st7:hover, .st8:hover, .st9:hover, .st10:hover, .st11:hover, .st12:hover, .st13:hover {\n  fill: #ff2021;\n  stroke: #525252;\n  stroke-width: 0.5;\n  cursor: pointer; }\n\n.st6:hover {\n  fill: #ff2021;\n  stroke: #10787D; }\n", ""]);
+exports.push([module.i, "@-webkit-keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n.backshirtshow {\n  -webkit-animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n          animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n  background-color: rgba(11, 41, 55, 0.3);\n  color: #ffffff;\n  margin: 20px; }\n\nh1 {\n  color: #ffffff; }\n\n.st0, .st1, .st2, .st3, .st4, .st5, .st7, .st8, .st9, .st10, .st11, .st12, .st13 {\n  fill: #ffffff;\n  stroke: #525252;\n  stroke-width: 2; }\n\n.st6 {\n  fill: #ffffff;\n  stroke: #525252; }\n\n.st0:hover, .st1:hover, .st2:hover, .st3:hover, .st4:hover, .st5:hover, .st7:hover, .st8:hover, .st9:hover, .st10:hover, .st11:hover, .st12:hover, .st13:hover {\n  fill: #ff2021;\n  stroke: #525252;\n  stroke-width: 0.5;\n  cursor: pointer; }\n\n.st6:hover {\n  fill: #ff2021;\n  stroke: #10787D; }\n", ""]);
 
 // exports
 
@@ -284,7 +399,10 @@ var BackComponent = (function () {
     BackComponent.prototype.ngOnInit = function () {
     };
     BackComponent.prototype.front = function () {
-        this.router.navigateByUrl('emi/cutting');
+        this.router.navigateByUrl('emi/cutting/cutting');
+    };
+    BackComponent.prototype.home = function () {
+        this.router.navigateByUrl('emi/home');
     };
     return BackComponent;
 }());
@@ -338,11 +456,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var routes = [
-    { path: 'emi/cutting', component: __WEBPACK_IMPORTED_MODULE_2__root_root_component__["a" /* RootComponent */] },
-    { path: 'emi/hem', component: __WEBPACK_IMPORTED_MODULE_5__dialog_dialog_component__["a" /* HemComponent */] },
-    { path: 'emi/bk', component: __WEBPACK_IMPORTED_MODULE_11__back_view_back_view_component__["a" /* BackViewComponent */] },
-    { path: '', redirectTo: 'emi/cutting', pathMatch: 'full' },
-    { path: 'emi', redirectTo: 'emi/cutting', pathMatch: 'full' },
+    { path: 'emi/cutting/cutting', component: __WEBPACK_IMPORTED_MODULE_2__root_root_component__["a" /* RootComponent */] },
+    { path: 'emi/cutting/hem', component: __WEBPACK_IMPORTED_MODULE_5__dialog_dialog_component__["a" /* HemComponent */] },
+    { path: 'emi/cutting/bk', component: __WEBPACK_IMPORTED_MODULE_11__back_view_back_view_component__["a" /* BackViewComponent */] },
 ];
 var CuttingModule = (function () {
     function CuttingModule() {
@@ -355,11 +471,12 @@ CuttingModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */].forRoot(routes),
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_material__["b" /* MdCardModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_material__["a" /* MdButtonModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_material__["d" /* MdGridListModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_material__["c" /* MdDialogModule */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_forms__["c" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_material__["d" /* MdCardModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_material__["b" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_material__["k" /* MdGridListModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_material__["i" /* MdDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_forms__["d" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_material__["E" /* MdTooltipModule */],
         ],
         exports: [__WEBPACK_IMPORTED_MODULE_2__root_root_component__["a" /* RootComponent */], __WEBPACK_IMPORTED_MODULE_5__dialog_dialog_component__["a" /* HemComponent */]],
         // entryComponents: [DialogComponent],
@@ -374,7 +491,7 @@ CuttingModule = __decorate([
 /***/ "./src/app/cutting/dialog/dialog.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h4>Hem WI Details</h4>\n  <button md-button (click)=\"front()\">Front</button>\n  <div class=\"section\">\n    <div class=\"section1\" style=\"float:left;height:200px;\">\n      <img\n        src=\"http://sewheidi.com/ultimate-guide-fashion-design-terminology-abbreviations/images/sew_heidi_double_needle_top_stitch_dnts_fashion.jpg\"\n        style=\"width:200px;padding: 10px\"/>\n      <img src=\"http://sewabaloo.com/wp-content/uploads/2015/10/Overlock-Stitch.jpg\"\n           style=\"width:200px;padding: 10px;\"/>\n      <br>\n      <video width=\"320\" height=\"200\" controls>\n        <source src=\"assets/vido.mp4\" type=\"video/mp4\">\n      </video>\n\n    </div>\n    <div class=\"section2\" style=\"float:right;width:50%;height:150px;\">\n      <ul style=\"background-color: #10787D\">\n        <li>details</li>\n        <li>details</li>\n        <li>details</li>\n        <li>details</li>\n        <li>details</li>\n        <li>details</li>\n      </ul>\n      <br>\n      <ul style=\"background-color: #7d170e\">\n        <li>comment</li>\n        <li>comment</li>\n        <li>comment</li>\n        <li>comment</li>\n        <li>comment</li>\n        <li>comment</li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div>\n  <h4>Hem WI Details</h4>\n  <button  md-raised-button color=\"primary\" (click)=\"home()\">Home</button>\n  <button  md-raised-button color=\"primary\" (click)=\"front()\">Front</button>\n  <div class=\"section\">\n    <div class=\"section1\" style=\"float:left;height:200px;\">\n      <img\n        src=\"http://sewheidi.com/ultimate-guide-fashion-design-terminology-abbreviations/images/sew_heidi_double_needle_top_stitch_dnts_fashion.jpg\"\n        style=\"width:200px;padding: 10px\"/>\n      <img src=\"http://sewabaloo.com/wp-content/uploads/2015/10/Overlock-Stitch.jpg\"\n           style=\"width:200px;padding: 10px;\"/>\n      <br>\n      <video width=\"320\" height=\"200\" controls>\n        <source src=\"assets/vido.mp4\" type=\"video/mp4\">\n      </video>\n\n    </div>\n    <div class=\"section2\" style=\"float:right;width:50%;height:150px;\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item\">Cras justo odio</li>\n        <li class=\"list-group-item\">Dapibus ac facilisis in</li>\n        <li class=\"list-group-item\">Morbi leo risus</li>\n        <li class=\"list-group-item\">Porta ac consectetur ac</li>\n        <li class=\"list-group-item\">Vestibulum at eros</li>\n      </ul>\n      <br>\n      <ul class=\"list-group\">\n        <li class=\"list-group-item\">Cras justo odio</li>\n        <li class=\"list-group-item\">Dapibus ac facilisis in</li>\n        <li class=\"list-group-item\">Morbi leo risus</li>\n        <li class=\"list-group-item\">Porta ac consectetur ac</li>\n        <li class=\"list-group-item\">Vestibulum at eros</li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -386,7 +503,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".list-group .list-group-item {\n  background-color: rgba(11, 41, 55, 0.3); }\n", ""]);
 
 // exports
 
@@ -419,7 +536,10 @@ var HemComponent = (function () {
         this.router = router;
     }
     HemComponent.prototype.front = function () {
-        this.router.navigateByUrl('emi/cutting');
+        this.router.navigateByUrl('emi/cutting/cutting');
+    };
+    HemComponent.prototype.home = function () {
+        this.router.navigateByUrl('emi/home');
     };
     HemComponent.prototype.ngOnInit = function () {
     };
@@ -442,7 +562,7 @@ var _a;
 /***/ "./src/app/cutting/front/front.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"frontshirtshow\"><h2>Front Shirt Component Selection</h2>\n  <button md-button (click)=\"bk()\">Back</button>\n  <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n<g id=\"rightfront\">\n\t<path class=\"st0\" d=\"M640.8,155.9c-35-11.4-70.1-22.9-105.1-34.3c-3.8,6-9.2,13.3-16.8,20.6c-10.4,10-20.9,16.1-28.6,19.8\n\t\tc1.7,73.8,2.7,147.5,3.3,221.3c0.7,101.3,0.4,202.7-1,304c23.2,5.6,42.9,7.7,57,8.6c21.8,1.3,33.8,2.1,48.3-3\n\t\tc22-7.6,34.5-21.5,39.1-27.2c2.8-37.1,3.5-76.4,1.3-117.6c-0.3-6.5-0.8-13-1.2-19.4c-7.5-1.9-1.4-293.3-2-292.4c0,0,0,0,0,0\n\t\tc2.7-26,3.8-41.6,3.8-41.6C639.6,185,640.4,171.8,640.8,155.9z\"/>\n</g>\n<g id=\"leftfront\">\n\t<path class=\"st1\" d=\"M328.7,164.9c33.7-12.9,67.3-25.8,101-38.8c4.8,6.4,11.7,14.4,21.4,22c7,5.6,13.7,9.7,19.6,12.8\n\t\tc-0.8,70.9-1.4,141.9-2,212.8c-0.9,105.8-1.5,211.7-2,317.5c-15.4,3.5-30.9,7.1-46.3,10.6c-7.5,1.6-26.4,4.6-48.3-3\n\t\tc-22-7.6-34.5-21.5-39.1-27.2c-2.8-37.1-3.5-76.4-1.3-117.6c0.3-6.5,0.8-13,1.2-19.4c7.5-1.9,1.4-293.3,2-292.4c0,0,0,0,0,0\n\t\tc-2.1-20.6-3.4-36.4-3.8-41.6C330.2,190.7,329.4,178.6,328.7,164.9z\"/>\n</g>\n<g id=\"hem\">\n\t<path (click)=\"function()\" class=\"st2\" d=\"M468.2,550.4c1.5,3.9,8,19.4,25.4,28.3c15.8,8.1,30.6,5.8,35,4.9c-5.1,14.2-11,35.9-10.8,62.7\n\t\tc0.1,18,2.9,33.3,6,45c-11.1-9.6-29.3-27.9-42.2-56.4C465.3,598.5,466.6,565.6,468.2,550.4z\"/>\n</g>\n<g id=\"rightcuff\">\n\t<path class=\"st3\" d=\"M610,606c-6.4,9.8-12.9,19.6-19.3,29.3c3.7,5.7,11.4,15.9,24.7,24c13.9,8.4,27,10.4,33.8,11\n\t\tc5.6-9,11.3-18,16.9-27C647.4,630.8,628.7,618.4,610,606z\"/>\n</g>\n<g id=\"leftcuff\">\n\t<path class=\"st4\" d=\"M258.1,593.8c2.5,15.7,4.9,31.3,7.4,47c6-2.2,16.2-5.2,29.2-4.8c13.7,0.5,24.1,4.5,30,7.3\n\t\tc-1.8-14.4-3.6-28.9-5.3-43.3c-9.2-2.7-18.5-5.5-27.7-8.2C280.5,592.4,269.3,593.1,258.1,593.8z\"/>\n</g>\n<g id=\"sleeves\">\n\t<path class=\"st5\" d=\"M323.7,137.7c-18.7,45-37,98.9-50.3,161c-25.3,117.6-23.2,220.3-15.2,295.1c6.7-1.7,16.3-3.3,27.9-2.6\n\t\tc14.9,1,26.4,5.4,33.3,8.8c5.7-66.2,11.4-132.4,17.1-198.7c3.1-52.9,3.3-112.1-2.2-176.5C331.6,194.2,328,165.1,323.7,137.7z\"/>\n\t<path class=\"st6\" d=\"M671.9,177.8c8.1,16,13.5,33.3,24.1,67.2c5.8,18.6,10,32,15,51c9.4,35.6,14.8,64.5,17.5,80\n\t\tc5.4,31.2,10.5,70.8,12.5,117c-9,24.1-20.2,50.4-34,78c-13.5,26.9-27.4,51-40.9,72.3c-6.3-5.3-13.3-10.8-21.1-16.3\n\t\tc-12.3-8.6-24.2-15.5-35-21c13.3-30.7,26.7-61.3,40-92c7.5-20.7,15-41.5,22.6-62.2c-12.9-38.3-25.8-76.6-38.7-114.8\n\t\tc0.4-33.5,0.8-67.1,1.2-100.6c1.6-18.8,3.3-37.6,4.9-56.5c0.9-15.5,1.8-31.1,2.7-46.6C656.3,149.8,665.5,165.3,671.9,177.8z\"/>\n</g>\n<g id=\"shoulder\">\n\t<path class=\"st7\" d=\"M550.2,96.1c30.8,12.4,61.6,24.8,92.5,37.2c-1,5.1-1.7,10.8-1.8,17c-0.1,1.9-0.1,3.8,0,5.5\n\t\tc-35-11.4-70.1-22.9-105.1-34.3c2.4-4.5,4.7-8.9,7.1-13.4C545.2,104.2,547.7,100.2,550.2,96.1z\"/>\n\t<path class=\"st7\" d=\"M410.8,94.2c-16.7,8.5-33.5,17-50.2,25.5c-12.1,6.1-24.1,12.2-36.2,18.3c1.4,9.7,2.8,19.4,4.2,29.1\n\t\tc33.7-13.7,67.3-27.3,101-41c-3.2-4.3-6.6-9.3-9.8-14.8C416.2,105.3,413.2,99.5,410.8,94.2z\"/>\n\t<path class=\"st8\" d=\"M387.3,292.7\"/>\n</g>\n<g id=\"front_placket\">\n\t<path class=\"st9\" d=\"M470.9,163c-4.3-2.6-8.7-5.2-13-7.8c7.2-15.1,14.4-30.2,21.6-45.2c7.1,15.4,14.3,30.7,21.4,46.1\n\t\tc-3.6,2-7.1,4-10.7,5.9c0.8,20.1,1.4,40.4,1.9,60.9c0.6,25.6,1,50.8,1.1,75.6c0,0,0,0,0,0c0,24.4,0.2,41.6,0.3,43.9\n\t\tc0.1,12,0,70.3-0.7,235.6c-3.8-2.1-9.2-5.6-14.3-11.3c-5.6-6.3-8.6-12.6-10.2-16.7C469.1,421,470,292,470.9,163z\"/>\n\t<path class=\"st8\" d=\"M480.3,327.8\"/>\n</g>\n<g id=\"collar\">\n\t<g id=\"g3599_3_\" transform=\"translate(433.0977,664.7261)\">\n\t\t<path id=\"path3601_3_\" inkscape:connector-curvature=\"0\" class=\"st10\" d=\"M103.7-608c4.3,13.1,8.6,26.3,13,39.4\n\t\t\tc-1.8,2.6-4.3,6.5-7.2,11.5c-3.7,6.3-4.9,9.2-6.9,12.8c-4.2,7.6-8.4,12.2-16.6,21.1c-4.4,4.7-10.3,10.7-17.9,17.2\n\t\t\tc-7.1-16.2-14.2-32.4-21.4-48.6c25.8-22.4,46.7-38.3,54.1-47.4c1.3-1.6,2.2-3,2.6-4.4c3.3-11.3-23.7-14.6-23.7-14.6l-52.9-0.7\n\t\t\tc-37.9-2.6-37.5,17-37.5,17c10,17.8,56.6,50,56.6,50c-7,15.1-14.1,30.2-21.1,45.2c-7.3-5.8-15.8-13.6-24.1-23.8\n\t\t\tc-11.3-13.8-18.4-27.3-22.9-37.7c3.9-11.8,7.7-23.6,11.6-35.4\"/>\n\t</g>\n</g>\n<g id=\"pocket\">\n\t<g>\n\t\t<path class=\"st11\" d=\"M609.4,226.7c-24.8-0.2-49.7-0.3-74.5-0.5c-0.4,2.9-0.8,5.8-1.2,8.7c13.4,2.8,26.8,5.5,40.2,8.3\n\t\t\tc12.6-2.4,25.2-4.8,37.8-7.3C610.9,232.9,610.1,229.8,609.4,226.7z M572.9,240.5c-6.4,0-6.4-10,0-10\n\t\t\tC579.3,230.5,579.3,240.5,572.9,240.5z\"/>\n\t\t<path class=\"st12\" d=\"M537.4,236.2c12.2,2.4,24.3,4.7,36.5,7.1c10.8-2.1,21.7-4.2,32.5-6.3c-0.8,15.1-1.6,30.2-2.3,45.3\n\t\t\tc-2.7,4.1-5.6,6.7-7.7,8.3c-3.5,2.7-6.7,4.1-10.2,5.7c-2.8,1.2-4.8,2.1-7.7,2.7c-3.9,0.8-7.3,0.5-9.5,0.2\n\t\t\tc-5.9-0.8-10.4-2.5-13.3-3.8c-1.6-0.7-4-1.8-6.7-3.8c-4.4-3.2-7.1-6.7-8.7-9.2C539.3,267,538.3,251.6,537.4,236.2z\"/>\n\t</g>\n</g>\n<g id=\"sleeveplacket\">\n\t<path class=\"st13\" d=\"M632.1,619.3c12.3-19.5,24.6-39.1,36.9-58.6c5-3.4,10-6.9,15-10.3c-1.8,8.4-3.5,16.8-5.3,25.2\n\t\tc-11.2,17.2-22.5,34.3-33.7,51.5C640.7,624.4,636.4,621.9,632.1,619.3z\"/>\n</g>\n</svg>\n</div>\n"
+module.exports = "<div class=\"frontshirtshow\"><h2>Front Shirt Component Selection</h2>\n  <button  md-raised-button color=\"primary\" (click)=\"home()\">Home</button>\n  <button  md-raised-button color=\"primary\" (click)=\"bk()\">Back</button>\n  <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n<g id=\"rightfront\"  mdTooltipPosition=\"after\" mdTooltip=\"rightfront\">\n\t<path class=\"st0\" d=\"M640.8,155.9c-35-11.4-70.1-22.9-105.1-34.3c-3.8,6-9.2,13.3-16.8,20.6c-10.4,10-20.9,16.1-28.6,19.8\n\t\tc1.7,73.8,2.7,147.5,3.3,221.3c0.7,101.3,0.4,202.7-1,304c23.2,5.6,42.9,7.7,57,8.6c21.8,1.3,33.8,2.1,48.3-3\n\t\tc22-7.6,34.5-21.5,39.1-27.2c2.8-37.1,3.5-76.4,1.3-117.6c-0.3-6.5-0.8-13-1.2-19.4c-7.5-1.9-1.4-293.3-2-292.4c0,0,0,0,0,0\n\t\tc2.7-26,3.8-41.6,3.8-41.6C639.6,185,640.4,171.8,640.8,155.9z\"/>\n</g>\n<g id=\"leftfront\"  mdTooltipPosition=\"after\" mdTooltip=\"leftfront\">\n\t<path class=\"st1\" d=\"M328.7,164.9c33.7-12.9,67.3-25.8,101-38.8c4.8,6.4,11.7,14.4,21.4,22c7,5.6,13.7,9.7,19.6,12.8\n\t\tc-0.8,70.9-1.4,141.9-2,212.8c-0.9,105.8-1.5,211.7-2,317.5c-15.4,3.5-30.9,7.1-46.3,10.6c-7.5,1.6-26.4,4.6-48.3-3\n\t\tc-22-7.6-34.5-21.5-39.1-27.2c-2.8-37.1-3.5-76.4-1.3-117.6c0.3-6.5,0.8-13,1.2-19.4c7.5-1.9,1.4-293.3,2-292.4c0,0,0,0,0,0\n\t\tc-2.1-20.6-3.4-36.4-3.8-41.6C330.2,190.7,329.4,178.6,328.7,164.9z\"/>\n</g>\n<g id=\"hem\"  mdTooltipPosition=\"after\" mdTooltip=\"hem\">\n\t<path (click)=\"function()\" class=\"st2\" d=\"M468.2,550.4c1.5,3.9,8,19.4,25.4,28.3c15.8,8.1,30.6,5.8,35,4.9c-5.1,14.2-11,35.9-10.8,62.7\n\t\tc0.1,18,2.9,33.3,6,45c-11.1-9.6-29.3-27.9-42.2-56.4C465.3,598.5,466.6,565.6,468.2,550.4z\"/>\n</g>\n<g id=\"rightcuff\"  mdTooltipPosition=\"after\" mdTooltip=\"rightcuff\">\n\t<path class=\"st3\" d=\"M610,606c-6.4,9.8-12.9,19.6-19.3,29.3c3.7,5.7,11.4,15.9,24.7,24c13.9,8.4,27,10.4,33.8,11\n\t\tc5.6-9,11.3-18,16.9-27C647.4,630.8,628.7,618.4,610,606z\"/>\n</g>\n<g id=\"leftcuff\"  mdTooltipPosition=\"after\" mdTooltip=\"leftcuff\">\n\t<path class=\"st4\" d=\"M258.1,593.8c2.5,15.7,4.9,31.3,7.4,47c6-2.2,16.2-5.2,29.2-4.8c13.7,0.5,24.1,4.5,30,7.3\n\t\tc-1.8-14.4-3.6-28.9-5.3-43.3c-9.2-2.7-18.5-5.5-27.7-8.2C280.5,592.4,269.3,593.1,258.1,593.8z\"/>\n</g>\n<g id=\"sleeves\"  mdTooltipPosition=\"after\" mdTooltip=\"sleeves\">\n\t<path class=\"st5\" d=\"M323.7,137.7c-18.7,45-37,98.9-50.3,161c-25.3,117.6-23.2,220.3-15.2,295.1c6.7-1.7,16.3-3.3,27.9-2.6\n\t\tc14.9,1,26.4,5.4,33.3,8.8c5.7-66.2,11.4-132.4,17.1-198.7c3.1-52.9,3.3-112.1-2.2-176.5C331.6,194.2,328,165.1,323.7,137.7z\"/>\n\t<path class=\"st6\" d=\"M671.9,177.8c8.1,16,13.5,33.3,24.1,67.2c5.8,18.6,10,32,15,51c9.4,35.6,14.8,64.5,17.5,80\n\t\tc5.4,31.2,10.5,70.8,12.5,117c-9,24.1-20.2,50.4-34,78c-13.5,26.9-27.4,51-40.9,72.3c-6.3-5.3-13.3-10.8-21.1-16.3\n\t\tc-12.3-8.6-24.2-15.5-35-21c13.3-30.7,26.7-61.3,40-92c7.5-20.7,15-41.5,22.6-62.2c-12.9-38.3-25.8-76.6-38.7-114.8\n\t\tc0.4-33.5,0.8-67.1,1.2-100.6c1.6-18.8,3.3-37.6,4.9-56.5c0.9-15.5,1.8-31.1,2.7-46.6C656.3,149.8,665.5,165.3,671.9,177.8z\"/>\n</g>\n<g id=\"shoulder\"  mdTooltipPosition=\"after\" mdTooltip=\"shoulder\">\n\t<path class=\"st7\" d=\"M550.2,96.1c30.8,12.4,61.6,24.8,92.5,37.2c-1,5.1-1.7,10.8-1.8,17c-0.1,1.9-0.1,3.8,0,5.5\n\t\tc-35-11.4-70.1-22.9-105.1-34.3c2.4-4.5,4.7-8.9,7.1-13.4C545.2,104.2,547.7,100.2,550.2,96.1z\"/>\n\t<path class=\"st7\" d=\"M410.8,94.2c-16.7,8.5-33.5,17-50.2,25.5c-12.1,6.1-24.1,12.2-36.2,18.3c1.4,9.7,2.8,19.4,4.2,29.1\n\t\tc33.7-13.7,67.3-27.3,101-41c-3.2-4.3-6.6-9.3-9.8-14.8C416.2,105.3,413.2,99.5,410.8,94.2z\"/>\n\t<path class=\"st8\" d=\"M387.3,292.7\"/>\n</g>\n<g id=\"front_placket\"  mdTooltipPosition=\"after\" mdTooltip=\"front_placket\">\n\t<path class=\"st9\" d=\"M470.9,163c-4.3-2.6-8.7-5.2-13-7.8c7.2-15.1,14.4-30.2,21.6-45.2c7.1,15.4,14.3,30.7,21.4,46.1\n\t\tc-3.6,2-7.1,4-10.7,5.9c0.8,20.1,1.4,40.4,1.9,60.9c0.6,25.6,1,50.8,1.1,75.6c0,0,0,0,0,0c0,24.4,0.2,41.6,0.3,43.9\n\t\tc0.1,12,0,70.3-0.7,235.6c-3.8-2.1-9.2-5.6-14.3-11.3c-5.6-6.3-8.6-12.6-10.2-16.7C469.1,421,470,292,470.9,163z\"/>\n\t<path class=\"st8\" d=\"M480.3,327.8\"/>\n</g>\n<g id=\"collar\"  mdTooltipPosition=\"after\" mdTooltip=\"collar\">\n\t<g id=\"g3599_3_\" transform=\"translate(433.0977,664.7261)\">\n\t\t<path id=\"path3601_3_\" inkscape:connector-curvature=\"0\" class=\"st10\" d=\"M103.7-608c4.3,13.1,8.6,26.3,13,39.4\n\t\t\tc-1.8,2.6-4.3,6.5-7.2,11.5c-3.7,6.3-4.9,9.2-6.9,12.8c-4.2,7.6-8.4,12.2-16.6,21.1c-4.4,4.7-10.3,10.7-17.9,17.2\n\t\t\tc-7.1-16.2-14.2-32.4-21.4-48.6c25.8-22.4,46.7-38.3,54.1-47.4c1.3-1.6,2.2-3,2.6-4.4c3.3-11.3-23.7-14.6-23.7-14.6l-52.9-0.7\n\t\t\tc-37.9-2.6-37.5,17-37.5,17c10,17.8,56.6,50,56.6,50c-7,15.1-14.1,30.2-21.1,45.2c-7.3-5.8-15.8-13.6-24.1-23.8\n\t\t\tc-11.3-13.8-18.4-27.3-22.9-37.7c3.9-11.8,7.7-23.6,11.6-35.4\"/>\n\t</g>\n</g>\n<g id=\"pocket\"  mdTooltipPosition=\"after\" mdTooltip=\"pocket\">\n\t<g>\n\t\t<path class=\"st11\" d=\"M609.4,226.7c-24.8-0.2-49.7-0.3-74.5-0.5c-0.4,2.9-0.8,5.8-1.2,8.7c13.4,2.8,26.8,5.5,40.2,8.3\n\t\t\tc12.6-2.4,25.2-4.8,37.8-7.3C610.9,232.9,610.1,229.8,609.4,226.7z M572.9,240.5c-6.4,0-6.4-10,0-10\n\t\t\tC579.3,230.5,579.3,240.5,572.9,240.5z\"/>\n\t\t<path class=\"st12\" d=\"M537.4,236.2c12.2,2.4,24.3,4.7,36.5,7.1c10.8-2.1,21.7-4.2,32.5-6.3c-0.8,15.1-1.6,30.2-2.3,45.3\n\t\t\tc-2.7,4.1-5.6,6.7-7.7,8.3c-3.5,2.7-6.7,4.1-10.2,5.7c-2.8,1.2-4.8,2.1-7.7,2.7c-3.9,0.8-7.3,0.5-9.5,0.2\n\t\t\tc-5.9-0.8-10.4-2.5-13.3-3.8c-1.6-0.7-4-1.8-6.7-3.8c-4.4-3.2-7.1-6.7-8.7-9.2C539.3,267,538.3,251.6,537.4,236.2z\"/>\n\t</g>\n</g>\n<g id=\"sleeveplacket\"  mdTooltipPosition=\"after\" mdTooltip=\"sleeveplacket\">\n\t<path class=\"st13\" d=\"M632.1,619.3c12.3-19.5,24.6-39.1,36.9-58.6c5-3.4,10-6.9,15-10.3c-1.8,8.4-3.5,16.8-5.3,25.2\n\t\tc-11.2,17.2-22.5,34.3-33.7,51.5C640.7,624.4,636.4,621.9,632.1,619.3z\"/>\n</g>\n</svg>\n</div>\n"
 
 /***/ }),
 
@@ -454,7 +574,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "@-webkit-keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n.frontshirtshow {\n  -webkit-animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n          animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n  background-color: rgba(11, 41, 55, 0.3);\n  color: #ffffff;\n  margin: 20px; }\n\nh1 {\n  color: #ffffff; }\n\n.st0, .st1, .st2, .st3, .st4, .st5, .st7, .st8, .st9, .st10, .st11, .st12, .st13 {\n  fill: #ffffff;\n  stroke: #525252;\n  stroke-width: 0.5; }\n\n.st6 {\n  fill: #ffffff;\n  stroke: #525252; }\n\n.st0:hover, .st1:hover, .st2:hover, .st3:hover, .st4:hover, .st5:hover, .st7:hover, .st8:hover, .st9:hover, .st10:hover, .st11:hover, .st12:hover, .st13:hover {\n  fill: #ff2021;\n  stroke: #525252;\n  stroke-width: 0.5;\n  cursor: pointer; }\n\n.st6:hover {\n  fill: #ff2021;\n  stroke: #10787D; }\n", ""]);
+exports.push([module.i, "@-webkit-keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n.frontshirtshow {\n  -webkit-animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n          animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n  background-color: rgba(11, 41, 55, 0.3);\n  color: #ffffff;\n  margin: 20px; }\n\nh1 {\n  color: #ffffff; }\n\n.st0, .st1, .st2, .st3, .st4, .st5, .st7, .st8, .st9, .st10, .st11, .st12, .st13 {\n  fill: #ffffff;\n  stroke: #525252;\n  stroke-width: 2; }\n\n.st6 {\n  fill: #ffffff;\n  stroke: #525252; }\n\n.st0:hover, .st1:hover, .st2:hover, .st3:hover, .st4:hover, .st5:hover, .st7:hover, .st8:hover, .st9:hover, .st10:hover, .st11:hover, .st12:hover, .st13:hover {\n  fill: #ff2021;\n  stroke: #525252;\n  stroke-width: 0.5;\n  cursor: pointer; }\n\n.st6:hover {\n  fill: #ff2021;\n  stroke: #10787D; }\n", ""]);
 
 // exports
 
@@ -488,11 +608,14 @@ var FrontComponent = (function () {
     }
     FrontComponent.prototype.ngOnInit = function () {
     };
+    FrontComponent.prototype.home = function () {
+        this.router.navigateByUrl('emi/home');
+    };
     FrontComponent.prototype.bk = function () {
-        this.router.navigateByUrl('emi/bk');
+        this.router.navigateByUrl('emi/cutting/bk');
     };
     FrontComponent.prototype.function = function () {
-        this.router.navigateByUrl('emi/hem');
+        this.router.navigateByUrl('emi/cutting/hem');
     };
     return FrontComponent;
 }());
@@ -513,7 +636,7 @@ var _a;
 /***/ "./src/app/cutting/info/info.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"infobox\">\n  <h2>InfoBox</h2>\n  Customer ：Muji <br>\n  GO No. : S16Z08878 <br>\n  Style No. : 17SC741 <br>\n  Order Quantity : 20,658 pcs <br>\n  Washing ： Soft Wash <br>\n  Ex fty : 2016/10/31 <br>\n\n  <div class=\"warning\"><h4>Warning</h4></div>\n</div>\n\n"
+module.exports = "<div class=\"infobox\">\n  <h2>InfoBox</h2>\n\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Customer ：Muji</li>\n    <li class=\"list-group-item\">GO No. : S16Z08878</li>\n    <li class=\"list-group-item\">Style No. : 17SC741</li>\n    <li class=\"list-group-item\">Order Quantity : 20,658 pcs</li>\n    <li class=\"list-group-item\">Washing ： Soft Wash</li>\n    <li class=\"list-group-item\">Ex fty : 2016/10/31</li>\n  </ul>\n  <div class=\"warning\"><h4>Warning</h4>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\">some warning</li>\n      <li class=\"list-group-item\">some warning</li>\n      <li class=\"list-group-item\">some warning</li>\n      <li class=\"list-group-item\">some warning</li>\n    </ul>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -525,7 +648,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".warning {\n  height: 200px;\n  background-color: #ff2021;\n  color: #ffffff; }\n\n@-webkit-keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n.infobox {\n  -webkit-animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n          animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n  background-color: rgba(11, 41, 55, 0.3);\n  color: #ffffff;\n  margin: 20px; }\n", ""]);
+exports.push([module.i, ".warning {\n  height: 250px;\n  background-color: #ff2021;\n  color: #ffffff; }\n\n@-webkit-keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes oscillate-enlarge {\n  0% {\n    -webkit-transform: scale(0.3);\n            transform: scale(0.3); }\n  100% {\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n.infobox {\n  -webkit-animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n          animation: oscillate-enlarge 0.6s ease-in-out 0s alternate;\n  background-color: rgba(11, 41, 55, 0.3);\n  color: #ffffff;\n  margin: 20px; }\n\n.list-group .list-group-item {\n  background-color: rgba(111, 136, 148, 0.3); }\n", ""]);
 
 // exports
 
@@ -633,6 +756,692 @@ RootComponent = __decorate([
 
 var _a;
 //# sourceMappingURL=root.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/home/home-view/home-view.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <button  md-raised-button color=\"primary\" (click)=\"search()\">Search</button>\n  </div>\n  <div class=\"row\">\n    <app-menu></app-menu>\n  </div>\n  <div class=\"row\">\n    <app-work-space></app-work-space>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/home/home-view/home-view.component.sass":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/home/home-view/home-view.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeViewComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HomeViewComponent = (function () {
+    function HomeViewComponent(router) {
+        this.router = router;
+    }
+    HomeViewComponent.prototype.ngOnInit = function () {
+    };
+    HomeViewComponent.prototype.search = function () {
+        this.router.navigateByUrl('emi/search');
+    };
+    return HomeViewComponent;
+}());
+HomeViewComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-home-view',
+        template: __webpack_require__("./src/app/home/home-view/home-view.component.html"),
+        styles: [__webpack_require__("./src/app/home/home-view/home-view.component.sass")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
+], HomeViewComponent);
+
+var _a;
+//# sourceMappingURL=home-view.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/home/home.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_view_home_view_component__ = __webpack_require__("./src/app/home/home-view/home-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__menu_menu_component__ = __webpack_require__("./src/app/home/menu/menu.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu_item_menu_item_component__ = __webpack_require__("./src/app/home/menu-item/menu-item.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__work_space_work_space_component__ = __webpack_require__("./src/app/home/work-space/work-space.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__work_space_item_work_space_item_component__ = __webpack_require__("./src/app/home/work-space-item/work-space-item.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+var routes = [
+    { path: 'emi/home', component: __WEBPACK_IMPORTED_MODULE_2__home_view_home_view_component__["a" /* HomeViewComponent */] },
+    { path: '', redirectTo: 'emi/home', pathMatch: 'full' },
+    { path: 'emi', redirectTo: 'emi/home', pathMatch: 'full' },
+];
+var HomeModule = (function () {
+    function HomeModule() {
+    }
+    return HomeModule;
+}());
+HomeModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_router__["b" /* RouterModule */].forRoot(routes),
+        ],
+        declarations: [__WEBPACK_IMPORTED_MODULE_2__home_view_home_view_component__["a" /* HomeViewComponent */], __WEBPACK_IMPORTED_MODULE_3__menu_menu_component__["a" /* MenuComponent */], __WEBPACK_IMPORTED_MODULE_4__menu_item_menu_item_component__["a" /* MenuItemComponent */], __WEBPACK_IMPORTED_MODULE_5__work_space_work_space_component__["a" /* WorkSpaceComponent */], __WEBPACK_IMPORTED_MODULE_6__work_space_item_work_space_item_component__["a" /* WorkSpaceItemComponent */]]
+    })
+], HomeModule);
+
+//# sourceMappingURL=home.module.js.map
+
+/***/ }),
+
+/***/ "./src/app/home/menu-item/menu-item.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\" style=\"width: 15rem;\">\n  <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">Menu item</h4>\n    <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n    <a href=\"emi/cutting/cutting\" class=\"btn btn-primary\">Go somewhere</a>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/home/menu-item/menu-item.component.sass":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/home/menu-item/menu-item.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuItemComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var MenuItemComponent = (function () {
+    function MenuItemComponent() {
+    }
+    MenuItemComponent.prototype.ngOnInit = function () {
+    };
+    return MenuItemComponent;
+}());
+MenuItemComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-menu-item',
+        template: __webpack_require__("./src/app/home/menu-item/menu-item.component.html"),
+        styles: [__webpack_require__("./src/app/home/menu-item/menu-item.component.sass")]
+    }),
+    __metadata("design:paramtypes", [])
+], MenuItemComponent);
+
+//# sourceMappingURL=menu-item.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/home/menu/menu.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <app-menu-item *ngFor=\"let item of items\"></app-menu-item>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/home/menu/menu.component.sass":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/home/menu/menu.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var MenuComponent = (function () {
+    function MenuComponent() {
+        this.items = [1, 2, 3, 4, 5];
+    }
+    MenuComponent.prototype.ngOnInit = function () {
+    };
+    return MenuComponent;
+}());
+MenuComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-menu',
+        template: __webpack_require__("./src/app/home/menu/menu.component.html"),
+        styles: [__webpack_require__("./src/app/home/menu/menu.component.sass")]
+    }),
+    __metadata("design:paramtypes", [])
+], MenuComponent);
+
+//# sourceMappingURL=menu.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/home/work-space-item/work-space-item.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\" style=\"width: 15rem;\">\n  <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">Card title</h4>\n    <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/home/work-space-item/work-space-item.component.sass":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/home/work-space-item/work-space-item.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkSpaceItemComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var WorkSpaceItemComponent = (function () {
+    function WorkSpaceItemComponent() {
+    }
+    WorkSpaceItemComponent.prototype.ngOnInit = function () {
+    };
+    return WorkSpaceItemComponent;
+}());
+WorkSpaceItemComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-work-space-item',
+        template: __webpack_require__("./src/app/home/work-space-item/work-space-item.component.html"),
+        styles: [__webpack_require__("./src/app/home/work-space-item/work-space-item.component.sass")]
+    }),
+    __metadata("design:paramtypes", [])
+], WorkSpaceItemComponent);
+
+//# sourceMappingURL=work-space-item.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/home/work-space/work-space.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <app-work-space-item *ngFor=\"let item of items\" class=\"col\"></app-work-space-item>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/home/work-space/work-space.component.sass":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/home/work-space/work-space.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkSpaceComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var WorkSpaceComponent = (function () {
+    function WorkSpaceComponent() {
+        this.items = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    }
+    WorkSpaceComponent.prototype.ngOnInit = function () {
+    };
+    return WorkSpaceComponent;
+}());
+WorkSpaceComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-work-space',
+        template: __webpack_require__("./src/app/home/work-space/work-space.component.html"),
+        styles: [__webpack_require__("./src/app/home/work-space/work-space.component.sass")]
+    }),
+    __metadata("design:paramtypes", [])
+], WorkSpaceComponent);
+
+//# sourceMappingURL=work-space.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/search/search-item/search-item.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<md-card class=\"item\">\n  {{item}}\n  <span class=\"badge badge-danger\">4</span>/\n  <span class=\"badge badge-success\">10</span>\n</md-card>\n"
+
+/***/ }),
+
+/***/ "./src/app/search/search-item/search-item.component.sass":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".item {\n  background-color: rgba(111, 136, 148, 0.3);\n  padding: 10px;\n  border-top: 20em; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/search/search-item/search-item.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchItemComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SearchItemComponent = (function () {
+    function SearchItemComponent() {
+    }
+    SearchItemComponent.prototype.ngOnInit = function () {
+    };
+    return SearchItemComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], SearchItemComponent.prototype, "item", void 0);
+SearchItemComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-search-item',
+        template: __webpack_require__("./src/app/search/search-item/search-item.component.html"),
+        styles: [__webpack_require__("./src/app/search/search-item/search-item.component.sass")]
+    }),
+    __metadata("design:paramtypes", [])
+], SearchItemComponent);
+
+//# sourceMappingURL=search-item.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/search/search-view/search-view.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <button  md-raised-button color=\"primary\" (click)=\"home()\">Home</button>\n  </div>\n  <div class=\"row\">\n    <app-search class=\"col align-self-center\"></app-search>\n  </div>\n  <div class=\"row\">\n    <app-search-item *ngFor=\"let item of hisItems\" class=\"col-md-2\" [item]=\"item\"></app-search-item>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/search/search-view/search-view.component.sass":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/search/search-view/search-view.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchViewComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SearchViewComponent = (function () {
+    function SearchViewComponent(router) {
+        this.router = router;
+        this.hisItems = ['his1', 'his2', 'his3', 'his4', 'his5', 'his6', 'his7', 'his8', 'his9'];
+    }
+    SearchViewComponent.prototype.ngOnInit = function () {
+    };
+    SearchViewComponent.prototype.home = function () {
+        this.router.navigateByUrl('emi/home');
+    };
+    return SearchViewComponent;
+}());
+SearchViewComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-home-view',
+        template: __webpack_require__("./src/app/search/search-view/search-view.component.html"),
+        styles: [__webpack_require__("./src/app/search/search-view/search-view.component.sass")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
+], SearchViewComponent);
+
+var _a;
+//# sourceMappingURL=search-view.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/search/search.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__search_item_search_item_component__ = __webpack_require__("./src/app/search/search-item/search-item.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__search_search_component__ = __webpack_require__("./src/app/search/search/search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__search_view_search_view_component__ = __webpack_require__("./src/app/search/search-view/search-view.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+var routes = [
+    { path: 'emi/search', component: __WEBPACK_IMPORTED_MODULE_6__search_view_search_view_component__["a" /* SearchViewComponent */] },
+];
+var SearchModule = (function () {
+    function SearchModule() {
+    }
+    return SearchModule;
+}());
+SearchModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forRoot(routes),
+            __WEBPACK_IMPORTED_MODULE_7__angular_forms__["d" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_forms__["i" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["a" /* MdAutocompleteModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["b" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["c" /* MdButtonToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["d" /* MdCardModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["e" /* MdCheckboxModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["f" /* MdChipsModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["g" /* MdCoreModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["h" /* MdDatepickerModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["i" /* MdDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["j" /* MdExpansionModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["k" /* MdGridListModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["l" /* MdIconModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["m" /* MdInputModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["n" /* MdListModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["o" /* MdMenuModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["p" /* MdNativeDateModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["q" /* MdPaginatorModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["r" /* MdProgressBarModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["s" /* MdProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["t" /* MdRadioModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["u" /* MdRippleModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["v" /* MdSelectModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["w" /* MdSidenavModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["y" /* MdSliderModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["x" /* MdSlideToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["z" /* MdSnackBarModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["A" /* MdSortModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["B" /* MdTableModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["C" /* MdTabsModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["D" /* MdToolbarModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material__["E" /* MdTooltipModule */],
+        ],
+        declarations: [__WEBPACK_IMPORTED_MODULE_3__search_item_search_item_component__["a" /* SearchItemComponent */], __WEBPACK_IMPORTED_MODULE_4__search_search_component__["a" /* SearchComponent */], __WEBPACK_IMPORTED_MODULE_6__search_view_search_view_component__["a" /* SearchViewComponent */]]
+    })
+], SearchModule);
+
+//# sourceMappingURL=search.module.js.map
+
+/***/ }),
+
+/***/ "./src/app/search/search/search.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"example-form\">\n  <md-form-field class=\"example-full-width\">\n    <input mdInput placeholder=\"Input GO/JO to search\" aria-label=\"State\" [mdAutocomplete]=\"auto\" [formControl]=\"stateCtrl\">\n    <md-autocomplete #auto=\"mdAutocomplete\">\n      <md-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\">\n        <img style=\"vertical-align:middle;\" aria-hidden src=\"{{state.flag}}\" height=\"25\" />\n        <span>{{ state.name }}</span> |\n        <small>Population: {{state.population}}</small>\n      </md-option>\n    </md-autocomplete>\n  </md-form-field>\n\n  <br />\n\n  <md-slide-toggle\n    [checked]=\"stateCtrl.disabled\"\n    (change)=\"stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()\">\n    Disable Input?\n  </md-slide-toggle>\n</form>\n"
+
+/***/ }),
+
+/***/ "./src/app/search/search/search.component.sass":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".example-form {\n  width: 100%; }\n\n.example-full-width {\n  width: 100%; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/search/search/search.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_startWith__ = __webpack_require__("./node_modules/rxjs/add/operator/startWith.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_startWith__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var SearchComponent = (function () {
+    function SearchComponent() {
+        var _this = this;
+        this.states = [
+            {
+                name: 'Arkansas',
+                population: '2.978M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
+            },
+            {
+                name: 'California',
+                population: '39.14M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+            },
+            {
+                name: 'Florida',
+                population: '20.27M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+            },
+            {
+                name: 'Texas',
+                population: '27.47M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
+            }
+        ];
+        this.stateCtrl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]();
+        this.filteredStates = this.stateCtrl.valueChanges
+            .startWith(null)
+            .map(function (state) { return state ? _this.filterStates(state) : _this.states.slice(); });
+    }
+    SearchComponent.prototype.ngOnInit = function () {
+    };
+    SearchComponent.prototype.filterStates = function (name) {
+        return this.states.filter(function (state) {
+            return state.name.toLowerCase().indexOf(name.toLowerCase()) === 0;
+        });
+    };
+    return SearchComponent;
+}());
+SearchComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-search',
+        template: __webpack_require__("./src/app/search/search/search.component.html"),
+        styles: [__webpack_require__("./src/app/search/search/search.component.sass")]
+    }),
+    __metadata("design:paramtypes", [])
+], SearchComponent);
+
+//# sourceMappingURL=search.component.js.map
 
 /***/ }),
 

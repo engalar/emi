@@ -9,6 +9,9 @@ import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {path: 'emi/home', component: HomeViewComponent},
+
+  {path: '', redirectTo: 'emi/home', pathMatch: 'full'},
+  {path: 'emi', redirectTo: 'emi/home', pathMatch: 'full'},
 ];
 
 @NgModule({

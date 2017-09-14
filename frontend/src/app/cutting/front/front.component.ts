@@ -14,6 +14,10 @@ export class FrontComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  home () {
+    this.router.navigateByUrl('emi/home');
+  }
   bk () {
     this.router.navigateByUrl('emi/cutting/bk');
   }
