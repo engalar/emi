@@ -39,7 +39,7 @@ exports.i(__webpack_require__("./node_modules/css-loader/index.js?{\"sourceMap\"
 exports.i(__webpack_require__("./node_modules/css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!./node_modules/postcss-loader/index.js?{\"ident\":\"postcss\"}!./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"), "");
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nhtml {\n  font-family: \"Calibri Light\"; }\n\nh1 {\n  color: #ffffff;\n  font-size: 250%; }\n\nh3 {\n  color: #ffffff; }\n\nh2 {\n  color: #ffffff;\n  font-weight: 100;\n  text-align: center; }\n\nbody {\n  background-image: url(\"https://www.walldevil.com/wallpapers/w07/simple-background-simple-hd-background.jpg\");\n  /* Set a background color that will be displayed\n     while the background image is loading */ }\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nhtml, body {\n  height: 100%; }\n\n::-webkit-scrollbar {\n  display: none;\n  border-left: #fff; }\n", ""]);
 
 // exports
 
